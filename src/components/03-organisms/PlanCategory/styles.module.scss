@@ -44,3 +44,16 @@
   }
   
 }
+
+@include screen-mobile {
+  .container {
+    .plan {
+      .title {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

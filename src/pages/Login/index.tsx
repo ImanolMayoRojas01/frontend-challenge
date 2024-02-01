@@ -19,12 +19,19 @@ const LoginPage = () => {
   
   const {
     DOCUMENTS_SELECT,
-    typeDocument,
+    // typeDocument,
     numberDocument,
-    phoneNumber
+    phoneNumber,
+    isAcceptPrivacyPolicy,
+    isAcceptComercialPolicy
   } = properties
 
   const {
+    updateAcceptPrivacyPolicy,
+    updateAcceptComercialPolicy,
+    updateTypeDocument,
+    updateNumberDocument,
+    updatePhoneNumber,
     getUserData
   } = methods
 
@@ -48,35 +55,38 @@ const LoginPage = () => {
             Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra asesoría. 100% online.
           </Text>
           <div className={styles.dni_select}>
-            
             <Select
               items={DOCUMENTS_SELECT}
               placeholder={DOCUMENTS_SELECT[0]}
-              onChange={(event) => console.log(event)}
+              onChange={(event) => updateTypeDocument(event.value)}
               isNotRightBorderRadius
             />
-
             <InputText
+              type='number'
               label='Nro. de documento'
               value={numberDocument || ""}
+              onChange={(event) => updateNumberDocument(event.target.value)}
               isNotLeftBorder
             />
-
           </div>
           
           <InputText
+            type='number'
             label='Celular'
             classnames='mb-24'
             value={phoneNumber || ""}
+            onChange={(event) => updatePhoneNumber(event.target.value)}
           />
           <div className={styles.options}>
             <Checkbox
               label='Acepto lo Política de Privacidad'
-              checked
+              checked={isAcceptPrivacyPolicy}
+              onClick={() => updateAcceptPrivacyPolicy(!isAcceptPrivacyPolicy)}
             />
             <Checkbox
               label='Acepto la Política Comunicaciones Comerciales'
-              checked={false}
+              checked={isAcceptComercialPolicy}
+              onClick={() => updateAcceptComercialPolicy(!isAcceptComercialPolicy)}
             />
             <Text tag='p' size='smallest' weight='semi-bold' color='grey-50' underline pointer>Aplican Términos y Condiciones.</Text>
           </div>

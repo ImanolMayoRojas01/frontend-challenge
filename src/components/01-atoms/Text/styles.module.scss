@@ -36,6 +36,7 @@
 .underline { text-decoration: underline; }
 .pointer { cursor: pointer; }
 
+.size-very-smallest { font-size: map-get(Sizes.$desktop-sizes, "very-smallest"); }
 .size-smallest { font-size: map-get(Sizes.$desktop-sizes, "smallest"); }
 .size-small { font-size: map-get(Sizes.$desktop-sizes, "small"); }
 .size-regular { font-size: map-get(Sizes.$desktop-sizes, "regular"); }
@@ -46,6 +47,7 @@
 .size-big { font-size: map-get(Sizes.$desktop-sizes, "big"); }
 
 @include screen-mobile {
+  .size-very-smallest { font-size: map-get(Sizes.$mobile-sizes, "very-smallest"); }
   .size-smallest { font-size: map-get(Sizes.$mobile-sizes, "smallest"); }
   .size-small { font-size: map-get(Sizes.$mobile-sizes, "small"); }
   .size-regular { font-size: map-get(Sizes.$mobile-sizes, "regular"); }

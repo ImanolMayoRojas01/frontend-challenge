@@ -1,0 +1,21 @@
+@use "@/assets/styles/variables/colors" as Colors;
+
+.container {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border: 2px solid Colors.$blue-berry;
+    border-radius: 50%;
+    .rotate {
+      transform: rotate(90deg);
+    }
+  }
+}

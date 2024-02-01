@@ -13,5 +13,6 @@ export type PlanFetchStateType = {
 
 export type PlantStateType = {
   plans: PlanEntity[]
+  currentUserPlan: PlanEntity | null
   fetchStates: PlanFetchStateType
 }

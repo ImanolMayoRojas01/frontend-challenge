@@ -1,7 +1,6 @@
 import { PlanEntity } from "@/core/models/store/plan.models"
 import { useAppDispatch, useAppSelector } from "@/store"
-import { A_GET_PLANS } from "@/store/plans/actions"
-import { differenceInYears } from "date-fns"
+import { A_GET_PLANS, A_SET_CURRENT_USER_PLAN } from "@/store/plans/actions"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -15,7 +14,7 @@ export const usePlanPage = () => {
 
   const [plans, setPlans] = useState<PlanEntity[]>([])
 
-  const [categoryPlan, setCategoryPlan] = useState<CategoryPlan>('for-me')
+  const [categoryPlan, setCategoryPlan] = useState<CategoryPlan | null>(null)
 
   const updateCategoryPlan = (value: CategoryPlan) => setCategoryPlan(value)
 
@@ -25,6 +24,13 @@ export const usePlanPage = () => {
     const userAge = AuthStore.user.age
 
     setPlans(PlanStore.plans.filter(plan => userAge <= plan.age))
+  }
+
+  const goToBackPage = () => navigate(-1)
+
+  const assignCurrentPlan = (plan: PlanEntity) => {
+    dispatch(A_SET_CURRENT_USER_PLAN(plan))
+    navigate('/resume')
   }
 
   useEffect(() => {
@@ -45,7 +51,9 @@ export const usePlanPage = () => {
       AuthStore
     },
     methods: {
-      updateCategoryPlan
+      updateCategoryPlan,
+      assignCurrentPlan,
+      goToBackPage
     }
   }
 }

@@ -1,6 +1,5 @@
 import StepLine from '@/components/03-organisms/StepLine'
 import styles from './style.module.scss'
-import Icon from '@/components/01-atoms/Icon'
 import Text from '@/components/01-atoms/Text'
 import ContactHeader from '@/components/03-organisms/ContactHeader'
 import PlanCategory from '@/components/03-organisms/PlanCategory'
@@ -12,6 +11,7 @@ import Plan from '@/components/03-organisms/Plan'
 
 import HouseImage from '@/assets/images/house.png'
 import HospitalImage from '@/assets/images/hospital.png'
+import BackButton from '@/components/02-molecules/BackButton'
 
 const PlansPage = () => {
   const { properties, methods } = usePlanPage()
@@ -23,7 +23,9 @@ const PlansPage = () => {
   } = properties
 
   const {
-    updateCategoryPlan
+    updateCategoryPlan,
+    assignCurrentPlan,
+    goToBackPage
   } = methods
 
   return (
@@ -39,16 +41,8 @@ const PlansPage = () => {
         />
       </div>
       <div className={styles.body}>
-        <div className={styles.back_page}>
-          <div className={styles.button}>
-            <Icon
-              icon='angle-down'
-              classnames={styles.rotate}
-              color='blue-berry'
-              size={14}
-            />
-          </div>
-          <Text tag='p' color='blue-berry' size='medium' weight='bold'>Volver</Text>
+        <div className={styles.back_button}>
+          <BackButton text='Volver' onClick={goToBackPage} />
         </div>
         <div className={styles.information}>
           <Text tag='p' color='neutral-50' size='big' weight='bold'>{AuthStore.user?.name} ¿Para quién deseas cotizar?</Text>
@@ -57,7 +51,7 @@ const PlansPage = () => {
 
         <div className={styles.plan1}>
           <PlanCategory
-            title='Para mi'
+            title='Para mí'
             description='Cotiza tu seguro de salud y agrega familiares si así lo deseas.'
             checked={categoryPlan === 'for-me'}
             image={ForMePlanImage}
@@ -66,26 +60,33 @@ const PlansPage = () => {
         </div>
         <div className={styles.plan2}>
           <PlanCategory
-            title='Para mi'
+            title='Para alguien mas'
             description='Cotiza tu seguro de salud y agrega familiares si así lo deseas.'
             checked={categoryPlan === 'for-someone-else'}
             image={ForMorePlanImage}
             onClick={() => updateCategoryPlan('for-someone-else')}
           />
         </div>
-
-        <div className={styles.plans}>
-          {
-            plans.map((plan, index) => (
-              <Plan
-                title={plan.name}
-                price={plan.price}
-                benefits={plan.description}
-                image={index !== 1 ? HouseImage : HospitalImage}
-              />
-            ))
-          }
-        </div>
+        {
+          categoryPlan && (
+            <div className={styles.plan_container}>
+              <div className={styles.plans}>
+                {
+                  plans.map((plan, index) => (
+                    <Plan
+                      key={index}
+                      title={plan.name}
+                      price={plan.price}
+                      benefits={plan.description}
+                      image={index !== 1 ? HouseImage : HospitalImage}
+                      onClick={() => assignCurrentPlan(plan)}
+                    />
+                  ))
+                }
+              </div>
+            </div>
+          )
+        }
       </div>
       
     </div>

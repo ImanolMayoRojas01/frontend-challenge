@@ -4,7 +4,7 @@ import { Colors } from '@/core/models/app/app.models'
 import { getClassnames } from '@/utils/styles.utils'
 
 type TextWeight = 'thin' | 'extra-light' | 'light' | 'regular' | 'medium' | 'semi-bold' | 'bold' | 'black'
-type TextSize = 'smallest' | 'small' | 'regular' | 'medium' | 'large' | 'medium-large' | 'extra-large' | 'big'
+type TextSize = 'very-smallest' | 'smallest' | 'small' | 'regular' | 'medium' | 'large' | 'medium-large' | 'extra-large' | 'big'
 type TextTag = 'span' | 'p' | 'label' | 'h1'
 
 type TextProps = {

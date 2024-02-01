@@ -1,9 +1,10 @@
 import { PlantStateType } from "@/core/models/store/plan.models";
 import { createReducer } from "@reduxjs/toolkit";
-import { A_GET_PLANS, A_PLANS_RESET_FETCH_STATES } from "./actions";
+import { A_GET_PLANS, A_PLANS_RESET_FETCH_STATES, A_SET_CURRENT_USER_PLAN } from "./actions";
 
 const initialState: PlantStateType = {
   plans: [],
+  currentUserPlan: null,
   fetchStates: {
     getPlans: 'initialize'
   }
@@ -21,6 +22,10 @@ const reducer = createReducer(initialState, builder => {
     .addCase(A_GET_PLANS.fulfilled, (state, { payload }) => {
       state.fetchStates.getPlans = 'success'
       state.plans = payload
+    })
+    // SET CURRENT USER PLAN
+    .addCase(A_SET_CURRENT_USER_PLAN, (state, { payload }) => {
+      state.currentUserPlan = payload
     })
 })
 

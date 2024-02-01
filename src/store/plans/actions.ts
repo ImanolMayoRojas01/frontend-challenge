@@ -8,3 +8,5 @@ export const A_GET_PLANS = createAsyncThunk<PlanEntity[]>(
   "plan/get-plans",
   async () => await getPlans()
 )
+
+export const A_SET_CURRENT_USER_PLAN = createAction<PlanEntity>("auth/set-current-user-plan")
