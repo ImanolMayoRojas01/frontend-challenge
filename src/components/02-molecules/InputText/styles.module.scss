@@ -1,0 +1,23 @@
+@use "@/assets/styles/variables/colors" as Colors;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid Colors.$grey-100;
+  
+  &.not_left_border {
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+  }
+
+  input {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: 'BR Sonoma Regular';
+  }
+}

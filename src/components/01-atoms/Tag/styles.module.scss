@@ -1,0 +1,14 @@
+@use "@/assets/styles/variables/colors.scss" as Colors;
+
+.container {
+  display: flex;
+  padding: 4px 8px;
+  width: max-content;
+  border-radius: 4px;
+  &.color-green-aqua {
+    background-color: Colors.$green-aqua;
+  }
+  &.color-gradient-aqua {
+    background: Colors.$green-aqua-gradient;
+  }
+}

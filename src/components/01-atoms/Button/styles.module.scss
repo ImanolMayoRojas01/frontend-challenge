@@ -1,0 +1,31 @@
+@use "@/assets/styles/variables/colors" as Colors;
+
+.container {
+  display: flex;
+  width: max-content;
+  cursor: pointer;
+  &.rounded-low {
+    border-radius: 40px;
+  }
+  &.rounded-high {
+    border-radius: 32px;
+  }
+
+  &.theme-dark {
+    background-color: Colors.$grey-50;
+  }
+  &.theme-primary {
+    background-color: Colors.$primary-red;
+  }
+
+  &.size-short {
+    padding: 20px 40px;
+  }
+  &.size-large {
+    padding: 14px 40px;
+  }
+
+  &.fullwidth {
+   width: 100%;
+  }
+}

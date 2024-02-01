@@ -1,0 +1,7 @@
+@mixin grid-container ($grids, $gap) {
+  display: grid;
+  max-width: 1920px;
+  // margin: 0 auto;
+  grid-template-columns: repeat($grids, 1fr);
+  column-gap: $gap;
+}

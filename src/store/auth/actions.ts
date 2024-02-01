@@ -1,4 +1,4 @@
-import { GetUserParams, getUser } from "@/core/api/auth/get-user";
+import { GetUserParams, getUser } from "@/core/services/auth/get-user";
 import { UserEntity } from "@/core/models/store/user.model";
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 
