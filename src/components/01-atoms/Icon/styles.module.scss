@@ -1,0 +1,20 @@
+@use "@/assets/styles/variables/colors.scss" as Colors;
+
+.container {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-grey-50 { fill: Colors.$grey-50; }
+.color-grey-100 { fill: Colors.$grey-100; }
+.color-blue-berry { fill: Colors.$blue-berry; }
+.color-neutral-50 { fill: Colors.$neutral-50; }
+.color-neutral-100 { fill: Colors.$neutral-100; }
+.color-green { fill: Colors.$green; }
+.color-green-aqua { fill: Colors.$green-aqua; }
+.color-primary-red { fill: Colors.$primary-red; }
+
+.color-white { fill: white; }

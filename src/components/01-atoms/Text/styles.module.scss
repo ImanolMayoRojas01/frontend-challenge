@@ -1,0 +1,54 @@
+@use "@/assets/styles/variables/colors" as Colors;
+@use "@/assets/styles/variables/font-sizes" as Sizes;
+@import '@/assets/styles/variables/responsive';
+
+.text {
+  font-family: 'BR Sonoma Regular';
+  margin: 0;
+}
+
+// Colors
+.color-grey-50 { color: Colors.$grey-50; }
+.color-grey-100 { color: Colors.$grey-100; }
+.color-grey-150 { color: Colors.$grey-150; }
+.color-grey-200 { color: Colors.$grey-200; }
+.color-blue-berry { color: Colors.$blue-berry; }
+.color-neutral-50 { color: Colors.$neutral-50; }
+.color-neutral-100 { color: Colors.$neutral-100; }
+.color-green { color: Colors.$green }
+.color-green-aqua { color: Colors.$green-aqua; }
+.color-primary-red { color: Colors.$primary-red; }
+.color-white { color: white; }
+
+// Weights
+.weight-thin { font-family: 'BR Sonoma Thin'; }
+.weight-extra-light { font-family: 'BR Sonoma Extra-Light'; }
+.weight-light { font-family: 'BR Sonoma Light'; }
+.weight-regular { font-family: 'BR Sonoma Regular'; }
+.weight-medium { font-family: 'BR Sonoma Medium'; }
+.weight-semi-bold { font-family: 'BR Sonoma Semi-Bold'; }
+.weight-bold { font-family: 'BR Sonoma Bold'; }
+.weight-black { font-family: 'BR Sonoma Black'; }
+
+// Extras
+.center { text-align: center; }
+.underline { text-decoration: underline; }
+.pointer { cursor: pointer; }
+
+.size-smallest { font-size: map-get(Sizes.$desktop-sizes, "smallest"); }
+.size-small { font-size: map-get(Sizes.$desktop-sizes, "small"); }
+.size-regular { font-size: map-get(Sizes.$desktop-sizes, "regular"); }
+.size-medium { font-size: map-get(Sizes.$desktop-sizes, "medium"); }
+.size-large { font-size: map-get(Sizes.$desktop-sizes, "large"); }
+.size-extra-large { font-size: map-get(Sizes.$desktop-sizes, "extra-large"); }
+.size-big { font-size: map-get(Sizes.$desktop-sizes, "big"); }
+
+@include screen-mobile {
+  .size-smallest { font-size: map-get(Sizes.$mobile-sizes, "smallest"); }
+  .size-small { font-size: map-get(Sizes.$mobile-sizes, "small"); }
+  .size-regular { font-size: map-get(Sizes.$mobile-sizes, "regular"); }
+  .size-medium { font-size: map-get(Sizes.$mobile-sizes, "medium"); }
+  .size-large { font-size: map-get(Sizes.$mobile-sizes, "large"); }
+  .size-extra-large { font-size: map-get(Sizes.$mobile-sizes, "extra-large"); }
+  .size-big { font-size: map-get(Sizes.$mobile-sizes, "big"); }
+}

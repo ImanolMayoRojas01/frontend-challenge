@@ -1,0 +1,9 @@
+@use "@/assets/styles/variables/colors.scss" as Colors;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 120px;
+  background-color: Colors.$grey-50;
+}

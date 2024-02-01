@@ -1,0 +1,18 @@
+.pointer {
+  cursor: pointer;
+}
+.w-100 {
+  width: 100% !important;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal {
+  > div {
+    z-index: 10;
+  }
+}

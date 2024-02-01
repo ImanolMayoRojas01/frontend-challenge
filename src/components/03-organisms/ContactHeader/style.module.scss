@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 14px 120px;
+  .logo {
+    object-fit: contain;
+  }
+
+  .contact {
+    display: flex;
+    gap: 16px;
+    .phone_content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
