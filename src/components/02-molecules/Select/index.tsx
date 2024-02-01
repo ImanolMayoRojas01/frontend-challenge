@@ -14,13 +14,12 @@ type SelectFormParams = {
   placeholder: SelectItemType;
   items: SelectItemType[];
   selected?: string;
-  label: string;
   onChange(params: SelectItemType): void;
   classnames?: string
   isNotRightBorderRadius?: boolean
 }
 
-const Select: FC<SelectFormParams> = ({ label, items, classnames, onChange, placeholder, selected, isNotRightBorderRadius }) => {
+const Select: FC<SelectFormParams> = ({ items, classnames, onChange, placeholder, selected, isNotRightBorderRadius }) => {
   
   const [isOpen, setOpen] = useState(false);
   const [count, setCount] = useState(0);

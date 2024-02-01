@@ -43,7 +43,6 @@ const LoginPage = () => {
           <div className={styles.dni_select}>
             
             <Select
-              label='DNI'
               items={DOCUMENTS_SELECT}
               placeholder={DOCUMENTS_SELECT[0]}
               onChange={(event) => console.log(event)}
