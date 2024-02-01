@@ -52,7 +52,6 @@ const LoginPage = () => {
             <InputText
               label='Nro. de documento'
               isNotLeftBorder
-              
             />
 
           </div>

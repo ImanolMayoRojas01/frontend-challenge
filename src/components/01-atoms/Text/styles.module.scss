@@ -5,6 +5,7 @@
 .text {
   font-family: 'BR Sonoma Regular';
   margin: 0;
+  line-height: 1.5em;
 }
 
 // Colors
@@ -40,6 +41,7 @@
 .size-regular { font-size: map-get(Sizes.$desktop-sizes, "regular"); }
 .size-medium { font-size: map-get(Sizes.$desktop-sizes, "medium"); }
 .size-large { font-size: map-get(Sizes.$desktop-sizes, "large"); }
+.size-medium-large { font-size: map-get(Sizes.$desktop-sizes, "medium-large"); }
 .size-extra-large { font-size: map-get(Sizes.$desktop-sizes, "extra-large"); }
 .size-big { font-size: map-get(Sizes.$desktop-sizes, "big"); }
 
@@ -49,6 +51,7 @@
   .size-regular { font-size: map-get(Sizes.$mobile-sizes, "regular"); }
   .size-medium { font-size: map-get(Sizes.$mobile-sizes, "medium"); }
   .size-large { font-size: map-get(Sizes.$mobile-sizes, "large"); }
+  .size-medium-large { font-size: map-get(Sizes.$mobile-sizes, "medium-large"); }
   .size-extra-large { font-size: map-get(Sizes.$mobile-sizes, "extra-large"); }
   .size-big { font-size: map-get(Sizes.$mobile-sizes, "big"); }
 }
