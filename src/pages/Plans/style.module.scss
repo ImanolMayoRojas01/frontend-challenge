@@ -1,0 +1,60 @@
+@use "@/assets/styles/variables/colors" as Colors;
+@import "@/assets/styles/variables/mixins";
+@import "@/assets/styles/variables/responsive";
+
+.container {
+  .contact_header {
+    grid-column: 1/13;
+    padding: 0 120px;
+  }
+  .step_line {
+    grid-column: 1/13;
+  }
+  .body {
+    @include grid-container(12, 32px);
+    width: 100%;
+   .back_page {
+      padding: 40px 0 56px 0; 
+      grid-column: 2/4;
+      display: flex;
+      width: 100%;
+      cursor: pointer;
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        margin-right: 8px;
+        border: 2px solid Colors.$blue-berry;
+        border-radius: 50%;
+        .rotate {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    .information {
+      grid-column: 4/10;
+      grid-row: 2/3;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+  
+    .plan_item {
+      display: flex;
+      .title {
+  
+      }
+    }
+  
+    .plan1 {
+      
+    }
+  
+    .plan2 {
+      
+    }
+  }
+}

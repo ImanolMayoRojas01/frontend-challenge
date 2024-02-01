@@ -6,11 +6,21 @@ import Text from '@/components/01-atoms/Text'
 import InputText from '@/components/02-molecules/InputText'
 
 import FamilyPresentationImage from '@/assets/images/family-presentation.png'
+import FamilyPresentationSmallImage from '@/assets/images/family-presentation-small.png'
+
 import Tag from '@/components/01-atoms/Tag'
 import Button from '@/components/01-atoms/Button'
 import Select from '@/components/02-molecules/Select'
+import { useLoginPage } from '@/hooks/use-login-page'
 
 const LoginPage = () => {
+
+  const { properties } = useLoginPage()
+  
+  const {
+    DOCUMENTS_SELECT
+  } = properties
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -20,8 +30,11 @@ const LoginPage = () => {
         <img src={FamilyPresentationImage} alt="family_presentation" className={styles.image} />
         <div className={styles.form}>
           <div className={styles.header}>
-            <Tag color='gradient-aqua' text='Seguro Salud Flexible' />
-            <Text tag='p' size='extra-large' weight='bold' color='grey-50'>Creado para ti y tu familia</Text>
+            <div className={styles.title}>
+              <Tag color='gradient-aqua' text='Seguro Salud Flexible' />
+              <Text tag='p' size='extra-large' weight='bold' color='grey-50'>Creado para ti y tu familia</Text>
+            </div>
+            <img src={FamilyPresentationSmallImage} alt="family_presentation" />
           </div>
 
           <Text tag='p' size='small' weight='semi-bold' color='grey-50' classnames='mb-24'>
@@ -31,13 +44,14 @@ const LoginPage = () => {
             
             <Select
               label='DNI'
-              items={[]}
-              isOpen
+              items={DOCUMENTS_SELECT}
+              placeholder={DOCUMENTS_SELECT[0]}
+              onChange={(event) => console.log(event)}
               isNotRightBorderRadius
             />
 
             <InputText
-              label='Celular'
+              label='Nro. de documento'
               isNotLeftBorder
               
             />
@@ -46,7 +60,7 @@ const LoginPage = () => {
           
           <InputText
             label='Celular'
-            classnames='mb-16'
+            classnames='mb-24'
             
           />
           <div className={styles.options}>

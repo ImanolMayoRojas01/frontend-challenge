@@ -11,10 +11,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
     padding: 16px;
     border: 1px solid Colors.$grey-100;
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+
+    p {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
     &.not_right_border_radius {
       border-radius: 8px 0 0 8px;
+    }
+    .icon_rotate {
+      transform: rotate(180deg);
     }
   }
 
@@ -25,13 +37,19 @@
     z-index: 10;
     top: calc(100% + 10px);
     border: 1px solid Colors.$grey-100;
-    padding: 16px;
+    padding: 16px 0;
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     .option {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      padding: 8px 16px;
 
+      &:hover {
+        background-color: Colors.$grey-150;
+      }
     }
   }
 }

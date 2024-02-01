@@ -1,5 +1,6 @@
 @use "@/assets/styles/variables/colors" as Colors;
 @import "@/assets/styles/variables/mixins";
+@import "@/assets/styles/variables/responsive";
 
 .container {
   width: 100%;
@@ -20,7 +21,6 @@
     .image {
       grid-column: 1/6;
       grid-row: 2/3;
-      width: 100%;
       object-fit: cover;
       height: 560px;
       border-radius: 24px;
@@ -33,12 +33,22 @@
       height: max-content;
       .header {
         display: flex;
-        flex-direction: column;
-        gap: 16px;
+        gap: 12px;
         margin-bottom: 8px;
+        .title {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        img {
+          display: none;
+          border-radius: 16px;
+          object-fit: cover;
+        }
       }
       .dni_select {
-        display: flex;
+        display: grid;
+        grid-template-columns: 40% 60%;
         margin-bottom: 16px;
         > * {
           width: 100%;
@@ -58,10 +68,38 @@
   .footer {
     grid-column: 1/13;
     grid-row: 3/3;
-    // margin-top: 32px;
     position: fixed;
     width: 100%;
     top: 100%;
     transform: translateY(-100%);
+  }
+}
+
+@include screen-mobile {
+  .container {
+    .content {
+      padding: 0 20px 0 20px;
+      .header_contact {
+        margin-bottom: 0;
+      }
+      .image {
+        display: none;
+      }
+      .form {
+        grid-column: 1/13;
+        .header {
+          padding-bottom: 24px;
+          margin-bottom: 24px;
+          align-items: center;
+          border-bottom: 1px solid Colors.$grey-250;
+          img {
+            display: flex;
+          }
+        }
+        .options {
+          gap: 16px;
+        }
+      }
+    }
   }
 }

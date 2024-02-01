@@ -1,0 +1,63 @@
+@use "@/assets/styles/variables/colors" as Colors;
+@import "@/assets/styles/variables/responsive";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 0;
+  background-color: Colors.$neutral-150;
+  .step_text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    .step {
+      display: flex;
+      align-items: center;
+      .number {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        padding: 4px 8px;
+        border-radius: 50%;
+        color: Colors.$neutral-100;
+        border: 1px solid Colors.$neutral-100;
+        margin-right: 16px;
+        &.active {
+          background-color: Colors.$blue-berry;
+          color: white;
+          border: 1px solid Colors.$blue-berry;
+        }
+      }
+    }
+    .step_points {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      > div {
+        background-color: Colors.$blue-berry;
+        border-radius: 2px;
+      }
+      .small {
+        width: 3px;
+        height: 3px;
+          
+      }
+      .big {
+        width: 4px;
+        height: 3px;
+      }
+    }
+
+  }
+
+  .step-bar {
+    display: none;
+  }
+
+  .back_button {
+
+  }
+}
