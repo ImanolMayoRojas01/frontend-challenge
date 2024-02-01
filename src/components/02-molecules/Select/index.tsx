@@ -5,16 +5,16 @@ import styles from './styles.module.scss'
 import Icon from '@/components/01-atoms/Icon'
 import useOnClickOutside from 'use-onclickoutside'
 
-export type SelectItemType = {
-  value: string
+export type SelectItemType<Value> = {
+  value: Value
   name: string
 }
 
 type SelectFormParams = {
-  placeholder: SelectItemType;
-  items: SelectItemType[];
+  placeholder: SelectItemType<any>;
+  items: SelectItemType<any>[];
   selected?: string;
-  onChange(params: SelectItemType): void;
+  onChange(params: SelectItemType<any>): void;
   classnames?: string
   isNotRightBorderRadius?: boolean
 }
@@ -23,7 +23,7 @@ const Select: FC<SelectFormParams> = ({ items, classnames, onChange, placeholder
   
   const [isOpen, setOpen] = useState(false);
   const [count, setCount] = useState(0);
-  const [currentElement, setCurrentElement] = useState<SelectItemType>({
+  const [currentElement, setCurrentElement] = useState<SelectItemType<any>>({
     name: "",
     value: "",
   });
@@ -46,7 +46,7 @@ const Select: FC<SelectFormParams> = ({ items, classnames, onChange, placeholder
     });
   };
 
-  const updateCurrentItem = (newElement: SelectItemType) => setCurrentElement(newElement);
+  const updateCurrentItem = (newElement: SelectItemType<any>) => setCurrentElement(newElement);
 
   const hide = () => setOpen(false);
 

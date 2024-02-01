@@ -15,11 +15,18 @@ import { useLoginPage } from '@/hooks/use-login-page'
 
 const LoginPage = () => {
 
-  const { properties } = useLoginPage()
+  const { properties, methods } = useLoginPage()
   
   const {
-    DOCUMENTS_SELECT
+    DOCUMENTS_SELECT,
+    typeDocument,
+    numberDocument,
+    phoneNumber
   } = properties
+
+  const {
+    getUserData
+  } = methods
 
   return (
     <div className={styles.container}>
@@ -51,6 +58,7 @@ const LoginPage = () => {
 
             <InputText
               label='Nro. de documento'
+              value={numberDocument || ""}
               isNotLeftBorder
             />
 
@@ -59,7 +67,7 @@ const LoginPage = () => {
           <InputText
             label='Celular'
             classnames='mb-24'
-            
+            value={phoneNumber || ""}
           />
           <div className={styles.options}>
             <Checkbox
@@ -78,6 +86,7 @@ const LoginPage = () => {
             size='large'
             sizeRounded='high'
             classnames='mt-24'
+            onClick={getUserData}
           />
         </div>
       </div>

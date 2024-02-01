@@ -14,11 +14,17 @@ import HouseImage from '@/assets/images/house.png'
 import HospitalImage from '@/assets/images/hospital.png'
 
 const PlansPage = () => {
-  const { properties } = usePlanPage()
+  const { properties, methods } = usePlanPage()
 
   const {
-    PlanStore
+    plans,
+    AuthStore,
+    categoryPlan
   } = properties
+
+  const {
+    updateCategoryPlan
+  } = methods
 
   return (
     <div className={styles.container}>
@@ -45,7 +51,7 @@ const PlansPage = () => {
           <Text tag='p' color='blue-berry' size='medium' weight='bold'>Volver</Text>
         </div>
         <div className={styles.information}>
-          <Text tag='p' color='neutral-50' size='big' weight='bold'>Rocío ¿Para quién deseas cotizar?</Text>
+          <Text tag='p' color='neutral-50' size='big' weight='bold'>{AuthStore.user?.name} ¿Para quién deseas cotizar?</Text>
           <Text tag='p' color='neutral-50' size='regular' weight='regular'>Selecciona la opción que se ajuste más a tus necesidades.</Text>
         </div>
 
@@ -53,22 +59,24 @@ const PlansPage = () => {
           <PlanCategory
             title='Para mi'
             description='Cotiza tu seguro de salud y agrega familiares si así lo deseas.'
-            checked={false}
+            checked={categoryPlan === 'for-me'}
             image={ForMePlanImage}
+            onClick={() => updateCategoryPlan('for-me')}
           />
         </div>
         <div className={styles.plan2}>
           <PlanCategory
             title='Para mi'
             description='Cotiza tu seguro de salud y agrega familiares si así lo deseas.'
-            checked
+            checked={categoryPlan === 'for-someone-else'}
             image={ForMorePlanImage}
+            onClick={() => updateCategoryPlan('for-someone-else')}
           />
         </div>
 
         <div className={styles.plans}>
           {
-            PlanStore.plans.map((plan, index) => (
+            plans.map((plan, index) => (
               <Plan
                 title={plan.name}
                 price={plan.price}

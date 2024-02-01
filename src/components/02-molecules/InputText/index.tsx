@@ -1,16 +1,16 @@
 import Text from '@/components/01-atoms/Text'
 import styles from './styles.module.scss'
-import { forwardRef } from 'react'
+import { InputHTMLAttributes, forwardRef } from 'react'
 import { getClassnames } from '@/utils/styles.utils'
 
 type InputTextProps = {
   label: string
   classnames?: string
   isNotLeftBorder?: boolean
-}
+} & InputHTMLAttributes<HTMLInputElement>
 
 const InputText = forwardRef<HTMLInputElement, InputTextProps>(
-  ({ label, classnames, isNotLeftBorder, ...props }, ref) => {
+  ({ label, classnames, isNotLeftBorder, ...rest }, ref) => {
     
     
     return (
@@ -25,7 +25,7 @@ const InputText = forwardRef<HTMLInputElement, InputTextProps>(
         <input
           type="text"
           ref={ref}
-          {...props}
+          {...rest}
         />
       </div>
     )
