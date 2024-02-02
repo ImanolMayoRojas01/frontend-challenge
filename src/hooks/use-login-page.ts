@@ -36,7 +36,12 @@ export const useLoginPage = () => {
     let isPhoneNumberValid = false
 
     if (numberDocument) {
-      const maxDigits = numberDocument.length === USER_DNI_DIGITS
+      let maxDigits = false
+      switch (typeDocument) {
+        case 'dni':
+          maxDigits = numberDocument.length === USER_DNI_DIGITS
+          break;
+      }
       isNumberDocumentValid = (maxDigits)
     }
 

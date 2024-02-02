@@ -55,6 +55,10 @@
 .size-extra-large { font-size: map-get(Sizes.$desktop-sizes, "extra-large"); }
 .size-big { font-size: map-get(Sizes.$desktop-sizes, "big"); }
 
+
+.font-BRS-Thin.size-very-smallest {
+  
+}
 // @mixin letter-space-generate($font, $size) {
 //   @if ($font == 'Lato Black') {
 //     @if ($size == 14px) {
