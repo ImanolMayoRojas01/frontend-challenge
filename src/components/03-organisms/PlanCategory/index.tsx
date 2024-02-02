@@ -31,9 +31,9 @@ const PlanCategory: FC<PlanCategoryProps> = ({ checked, title, description, imag
       <div className={styles.plan}>
         <div className={styles.title}>
           <img src={image} alt="plan_image" />
-          <Text tag='p' size='large' weight='black' color='neutral-50'>{title}</Text>
+          <Text tag='p' size='large' font='Lato-Black' color='neutral-50'>{title}</Text>
         </div>
-        <Text tag='p' size='smallest' weight='regular' color='neutral-50'>{description}</Text>
+        <Text tag='p' size='smallest' font='Lato-Regular' color='neutral-50'>{description}</Text>
       </div>
     </div>
   )

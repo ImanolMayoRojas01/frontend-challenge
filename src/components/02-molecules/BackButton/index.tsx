@@ -18,7 +18,7 @@ const BackButton: FC<BackButtonProps> = ({ text, onClick }) => {
           size={10}
         />
       </div>
-      <Text tag='p' color='blue-berry' size='medium' weight='bold'>{text}</Text>
+      <Text tag='p' color='blue-berry' size='medium' font='Lato-Bold'>{text}</Text>
     </div>
   )
 }

@@ -48,7 +48,7 @@
           img {
             display: none;
             border-radius: 16px;
-            object-fit: cover;
+            object-fit: contain;
           }
         }
         .dni_select {

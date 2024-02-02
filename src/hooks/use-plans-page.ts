@@ -15,8 +15,28 @@ export const usePlanPage = () => {
   const [plans, setPlans] = useState<PlanEntity[]>([])
 
   const [categoryPlan, setCategoryPlan] = useState<CategoryPlan | null>(null)
+  const [currentPlanPage, setCurrentPlanPage] = useState(1)
 
   const updateCategoryPlan = (value: CategoryPlan) => setCategoryPlan(value)
+
+  const nextPlanPage = () => {
+    const countPlans = plans.length
+    if (currentPlanPage >= countPlans) return
+    
+    setCurrentPlanPage(currentPlanPage + 1)
+  }
+  const previousPlanPage = () => {
+    if (currentPlanPage <= 1) return
+    
+    setCurrentPlanPage(currentPlanPage - 1)
+  }
+
+  const movePlansDOM = () => {
+    const plansElement = document.getElementById("plans")
+    if (!plansElement) return
+
+    plansElement.style.left = `calc((${currentPlanPage - 1} * -300px) - (${currentPlanPage - 1} * 32px))`
+  }
 
   const filterPlansForAge = () => {
     
@@ -34,6 +54,22 @@ export const usePlanPage = () => {
   }
 
   useEffect(() => {
+    // Se descuenta el 5% a todos los precios de los planes
+    if (categoryPlan === 'for-someone-else') {
+      setPlans(plans.map(plan => {
+        let priceWithDiscount = plan.price - (plan.price * 0.05)
+        return {
+          ...plan,
+          priceWithDiscount
+        }
+      }))
+    }
+    
+  }, [categoryPlan])
+
+  useEffect(movePlansDOM, [currentPlanPage, plans])
+
+  useEffect(() => {
     dispatch(A_GET_PLANS())
   }, [])
 
@@ -48,12 +84,15 @@ export const usePlanPage = () => {
       PlanStore,
       categoryPlan,
       plans,
-      AuthStore
+      AuthStore,
+      currentPlanPage
     },
     methods: {
       updateCategoryPlan,
       assignCurrentPlan,
-      goToBackPage
+      goToBackPage,
+      nextPlanPage,
+      previousPlanPage
     }
   }
 }

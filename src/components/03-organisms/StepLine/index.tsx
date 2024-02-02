@@ -29,13 +29,18 @@ const StepLine: FC<StepLineProps> = ({ currentStep, steps, onBackPage }) => {
                       isCurrentStep && styles.active
                     ])}
                   >
-                    {index + 1}
+                    <Text
+                      tag='p'
+                      size='smallest'
+                      color={isCurrentStep ? 'white' : 'neutral-100'}
+                      font='Lato-Bold'
+                    >{index + 1}</Text>
                   </div>
                   <Text
                     tag='p'
-                    size='smallest'
+                    size='regular'
                     
-                    weight={isCurrentStep ? 'bold' : 'regular'}
+                    font={isCurrentStep ? 'Lato-Bold' : 'Lato-Regular'}
                     color={isCurrentStep ? 'neutral-50' : 'neutral-100'}
                   >{step}</Text>
                 </div>
@@ -63,7 +68,7 @@ const StepLine: FC<StepLineProps> = ({ currentStep, steps, onBackPage }) => {
             size={10}
           />
         </div>
-        <Text tag='p' color='neutral-50' size='very-smallest' weight='black'>
+        <Text tag='p' color='neutral-50' size='very-smallest' font='Lato-Black'>
           PASO {currentStep} DE {steps.length}
         </Text>
         <ProgressBar

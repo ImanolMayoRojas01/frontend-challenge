@@ -8,7 +8,7 @@
   line-height: 1.4em;
 }
 
-// Colors
+/* ------------------ COLORS -------------------------- */
 .color-grey-50 { color: Colors.$grey-50; }
 .color-grey-100 { color: Colors.$grey-100; }
 .color-grey-150 { color: Colors.$grey-150; }
@@ -21,21 +21,30 @@
 .color-primary-red { color: Colors.$primary-red; }
 .color-white { color: white; }
 
-// Weights
-.weight-thin { font-family: 'BR Sonoma Thin'; }
-.weight-extra-light { font-family: 'BR Sonoma Extra-Light'; }
-.weight-light { font-family: 'BR Sonoma Light'; }
-.weight-regular { font-family: 'BR Sonoma Regular'; }
-.weight-medium { font-family: 'BR Sonoma Medium'; }
-.weight-semi-bold { font-family: 'BR Sonoma Semi-Bold'; }
-.weight-bold { font-family: 'BR Sonoma Bold'; }
-.weight-black { font-family: 'BR Sonoma Black'; }
+/* ------------------ FONTS -------------------------- */
+.font-BRS-Thin { font-family: 'BRSonoma Thin'; }
+.font-BRS-ExtraLight { font-family: 'BRSonoma Extra-Light'; }
+.font-BRS-Light { font-family: 'BRSonoma Light'; }
+.font-BRS-Regular { font-family: 'BRSonoma Regular'; }
+.font-BRS-Medium { font-family: 'BRSonoma Medium'; }
+.font-BRS-SemiBold { font-family: 'BRSonoma Semi-Bold'; }
+.font-BRS-Bold { font-family: 'BRSonoma Bold'; }
+.font-BRS-Black { font-family: 'BRSonoma Black'; }
 
-// Extras
+.font-Lato-Thin { font-family: 'Lato Thin'; }
+.font-Lato-Light { font-family: 'Lato Light'; }
+.font-Lato-Regular { font-family: 'Lato Regular'; }
+.font-Lato-Bold { font-family: 'Lato Bold'; }
+.font-Lato-Black { font-family: 'Lato Black'; }
+
+
+/* ------------------ EXTRAS -------------------------- */
 .center { text-align: center; }
 .underline { text-decoration: underline; }
 .pointer { cursor: pointer; }
+.crossed { text-decoration: line-through; }
 
+/* ------------------ FONT SIZES -------------------------- */
 .size-very-smallest { font-size: map-get(Sizes.$desktop-sizes, "very-smallest"); }
 .size-smallest { font-size: map-get(Sizes.$desktop-sizes, "smallest"); }
 .size-small { font-size: map-get(Sizes.$desktop-sizes, "small"); }
@@ -45,6 +54,17 @@
 .size-medium-large { font-size: map-get(Sizes.$desktop-sizes, "medium-large"); }
 .size-extra-large { font-size: map-get(Sizes.$desktop-sizes, "extra-large"); }
 .size-big { font-size: map-get(Sizes.$desktop-sizes, "big"); }
+
+// @mixin letter-space-generate($font, $size) {
+//   @if ($font == 'Lato Black') {
+//     @if ($size == 14px) {
+
+//     }
+//   }
+//   .font-Lato-Bold.size-big {
+//     letter-spacing: -0.6px;
+//   }
+// }
 
 @include screen-mobile {
   .size-very-smallest { font-size: map-get(Sizes.$mobile-sizes, "very-smallest"); }

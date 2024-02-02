@@ -1,0 +1,31 @@
+@use "@/assets/styles/variables/colors" as Colors;
+
+.container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  .indicators {
+    display: flex;
+    gap: 4px;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid Colors.$neutral-200;
+    fill: Colors.$neutral-200;
+    border-radius: 50%;
+    cursor: pointer;
+    &:hover {
+      border: 2px solid Colors.$blue-berry;
+      > svg {
+        fill: Colors.$blue-berry;
+      }
+    }
+  }
+}

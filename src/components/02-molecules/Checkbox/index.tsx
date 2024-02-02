@@ -25,7 +25,7 @@ const Checkbox: FC<CheckboxProps> = ({ label, checked, isDisabled, onClick }) =>
           size={11}
         />
       </div>
-      <Text tag='label' size='smallest' weight='regular' color='grey-200'>{label}</Text>
+      <Text tag='label' size='smallest' font="BRS-Regular" color='grey-200'>{label}</Text>
     </div>
   )
 }

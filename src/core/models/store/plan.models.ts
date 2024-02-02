@@ -4,6 +4,7 @@ export type PlanEntity = {
   name: string
   price: number
   description: string[]
+  priceWithDiscount?: number
   age: number
 }
 

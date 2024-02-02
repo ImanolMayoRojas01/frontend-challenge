@@ -8,6 +8,14 @@
   box-shadow: 0 0 10px Colors.$box-shadow;
   border-radius: 24px;
   justify-content: space-between;
+  width: 100%;
+  .recommended {
+    visibility: hidden;
+    margin-bottom: 8px;
+    &.visible {
+      visibility: visible;
+    }
+  }
   .header {
     display: flex;
     gap: 16px;
@@ -31,5 +39,17 @@
     flex-direction: column;
     gap: 24px;
     margin-bottom: 40px;
+    > div {
+      display: grid;
+      grid-template-columns: max-content auto;
+      :first-child {
+        width: 6px;
+        height: 6px;
+        background-color: Colors.$neutral-50;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+    }
   }
 }

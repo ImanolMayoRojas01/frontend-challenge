@@ -21,7 +21,7 @@ const InputText = forwardRef<HTMLInputElement, InputTextProps>(
           isNotLeftBorder && styles.not_left_border
         ])}
       >
-        <Text tag='p' size='smallest' weight='regular' color='grey-100'>{label}</Text>
+        <Text tag='p' size='smallest' font='BRS-Regular' color='grey-100'>{label}</Text>
         <input
           type="text"
           ref={ref}

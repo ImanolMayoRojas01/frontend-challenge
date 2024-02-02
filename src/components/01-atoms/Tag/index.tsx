@@ -16,7 +16,7 @@ const Tag: FC<TagProps> = ({ text, color }) => {
         color && `${styles['color-' + color]}`
       ])}
     >
-      <Text tag='p' color='grey-50' size='small' weight='bold'>{text}</Text>
+      <Text tag='p' color='grey-50' size='small' font='BRS-Bold'>{text}</Text>
     </div>
   )
 }

@@ -4,6 +4,8 @@
 
 .container {
   background-color: Colors.$neutral-300;
+  max-width: 1920px;
+  margin: 0 auto;
   .contact_header {
     padding: 0 120px;
   }
@@ -40,23 +42,24 @@
       }
     }
 
-
-
     .plan_container {
       grid-column: 1/13;
       grid-row: 4/5;
       @include grid-container(12, 32px);
-      position: relative;
-      max-width: 300px;
       .plans {
         grid-column: 2/12;
         display: flex;
         gap: 32px;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: center;
         > div {
-          max-width: 300px;
+          width: 300px;
         }
+      }
+      .pagination {
+        display: none;
+        grid-column: 1/13;
+        margin-top: 32px;
       }
     }
   }
@@ -93,10 +96,18 @@
         grid-row: 5/6;
         overflow-x: hidden;
         margin: 0 auto;
+        max-width: 330px;
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
         .plans {
-          margin: 0 auto;
           flex-flow: row nowrap;
           grid-column: 1/13;
+          position: relative;
+          width: max-content;
+        }
+        .pagination {
+          display: flex;
         }
       }
     }

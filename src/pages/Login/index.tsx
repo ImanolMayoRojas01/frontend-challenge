@@ -47,12 +47,12 @@ const LoginPage = () => {
             <div className={styles.header}>
               <div className={styles.title}>
                 <Tag color='gradient-aqua' text='Seguro Salud Flexible' />
-                <Text tag='p' size='extra-large' weight='bold' color='grey-50'>Creado para ti y tu familia</Text>
+                <Text tag='p' size='extra-large' font='BRS-Bold' color='grey-50'>Creado para ti y tu familia</Text>
               </div>
               <img src={FamilyPresentationSmallImage} alt="family_presentation" />
             </div>
 
-            <Text tag='p' size='small' weight='semi-bold' color='grey-50' classnames='mb-24'>
+            <Text tag='p' size='small' font='BRS-SemiBold' color='grey-50' classnames='mb-24'>
               Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra asesoría. 100% online.
             </Text>
             <div className={styles.dni_select}>
@@ -89,7 +89,7 @@ const LoginPage = () => {
                 checked={isAcceptComercialPolicy}
                 onClick={() => updateAcceptComercialPolicy(!isAcceptComercialPolicy)}
               />
-              <Text tag='p' size='smallest' weight='semi-bold' color='grey-50' underline pointer>Aplican Términos y Condiciones.</Text>
+              <Text tag='p' size='smallest' font='BRS-SemiBold' color='grey-50' underline pointer>Aplican Términos y Condiciones.</Text>
             </div>
             <Button
               text='Cotiza aquí'

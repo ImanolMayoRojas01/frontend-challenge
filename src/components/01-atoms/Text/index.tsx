@@ -1,27 +1,34 @@
 import { FC, PropsWithChildren } from 'react'
 import styles from './styles.module.scss'
-import { Colors } from '@/core/models/app/app.models'
 import { getClassnames } from '@/utils/styles.utils'
 
-type TextWeight = 'thin' | 'extra-light' | 'light' | 'regular' | 'medium' | 'semi-bold' | 'bold' | 'black'
+type TextFont =
+  'BRS-Thin' | 'BRS-ExtraLight' | 'BRS-Light' | 'BRS-Regular' | 'BRS-Medium' | 'BRS-SemiBold' | 'BRS-Bold' | 'BRS-Black' |
+  'Lato-Thin' | 'Lato-Light' | 'Lato-Regular' | 'Lato-Bold' | 'Lato-Black'
+
+type TextColor = 'grey-50' | 'grey-100' | 'blue-berry' | 'neutral-50' | 'grey-150' |
+'neutral-100' | 'green' | 'green-aqua' | 'primary-red' | 'white' | 'grey-200' |
+'neutral-200'
+
 type TextSize = 'very-smallest' | 'smallest' | 'small' | 'regular' | 'medium' | 'large' | 'medium-large' | 'extra-large' | 'big'
 type TextTag = 'span' | 'p' | 'label' | 'h1'
 
 type TextProps = {
   tag: TextTag
-  color: Colors
-  weight: TextWeight
+  color: TextColor
+  font: TextFont
   size: TextSize
   onClick?(): void
   classnames?: string
   center?: boolean
   underline?: boolean
   pointer?: boolean
+  crossed?: boolean
 }
 
 const Text: FC<PropsWithChildren<TextProps>> = ({
   tag,
-  weight,
+  font,
   size,
   color,
   children,
@@ -29,17 +36,19 @@ const Text: FC<PropsWithChildren<TextProps>> = ({
   onClick,
   center,
   underline,
-  pointer
+  pointer,
+  crossed
 }) => {
 
   const classnamesText = getClassnames([
     styles.text,
     color && styles[`color-${color}`],
-    weight && styles[`weight-${weight}`],
+    font && styles[`font-${font}`],
     size && styles[`size-${size}`],
     center && styles.center,
     underline && styles.underline,
     pointer && styles.pointer,
+    crossed && styles.crossed,
     classnames
   ])
 

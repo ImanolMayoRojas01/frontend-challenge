@@ -26,7 +26,7 @@ const Button: FC<ButtonProps> = ({ text, theme, size, onClick, fullwidth, sizeRo
       ])}
       onClick={onClick}
     >
-      <Text tag="p" size='large' weight='bold' color='white'>{text}</Text>
+      <Text tag="p" size='large' font='BRS-Bold' color='white'>{text}</Text>
     </div>
   )
 }

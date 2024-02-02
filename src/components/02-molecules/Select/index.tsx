@@ -84,7 +84,7 @@ const Select: FC<SelectFormParams> = ({ items, classnames, onChange, placeholder
         onClick={() => setOpen(!isOpen)}
       
       >
-        <Text tag='p' color='grey-50' size='regular' weight='regular' classnames="mb-3">{currentElement.name}</Text>
+        <Text tag='p' color='grey-50' size='regular' font='BRS-Regular' classnames="mb-3">{currentElement.name}</Text>
         <Icon
           icon='angle-down'
           size={13}
@@ -107,7 +107,7 @@ const Select: FC<SelectFormParams> = ({ items, classnames, onChange, placeholder
                     hide()
                   }}
                 >
-                  <Text tag='p' color='grey-50' size='small' weight='regular' classnames="mb-3" center>{item.name}</Text>
+                  <Text tag='p' color='grey-50' size='small' font='BRS-Regular' classnames="mb-3" center>{item.name}</Text>
                 </div>
               ))
             }

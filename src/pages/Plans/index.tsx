@@ -12,6 +12,7 @@ import Plan from '@/components/03-organisms/Plan'
 import HouseImage from '@/assets/images/house.png'
 import HospitalImage from '@/assets/images/hospital.png'
 import BackButton from '@/components/02-molecules/BackButton'
+import Pagination from '@/components/02-molecules/Pagination'
 
 const PlansPage = () => {
   const { properties, methods } = usePlanPage()
@@ -19,13 +20,16 @@ const PlansPage = () => {
   const {
     plans,
     AuthStore,
-    categoryPlan
+    categoryPlan,
+    currentPlanPage
   } = properties
 
   const {
     updateCategoryPlan,
     assignCurrentPlan,
-    goToBackPage
+    goToBackPage,
+    previousPlanPage,
+    nextPlanPage
   } = methods
 
   return (
@@ -46,8 +50,8 @@ const PlansPage = () => {
           <BackButton text='Volver' onClick={goToBackPage} />
         </div>
         <div className={styles.information}>
-          <Text tag='p' color='neutral-50' size='big' weight='bold'>{AuthStore.user?.name} ¿Para quién deseas cotizar?</Text>
-          <Text tag='p' color='neutral-50' size='regular' weight='regular'>Selecciona la opción que se ajuste más a tus necesidades.</Text>
+          <Text tag='p' color='neutral-50' size='big' font='Lato-Bold'>{AuthStore.user?.name} ¿Para quién deseas cotizar?</Text>
+          <Text tag='p' color='neutral-50' size='regular' font='Lato-Regular'>Selecciona la opción que se ajuste más a tus necesidades.</Text>
         </div>
         <div className={styles.planCategories}>
           <div className={styles.plan1}>
@@ -61,7 +65,7 @@ const PlansPage = () => {
           </div>
           <div className={styles.plan2}>
             <PlanCategory
-              title='Para alguien mas'
+              title='Para alguien más'
               description='Cotiza tu seguro de salud y agrega familiares si así lo deseas.'
               checked={categoryPlan === 'for-someone-else'}
               image={ForMorePlanImage}
@@ -73,7 +77,7 @@ const PlansPage = () => {
         {
           categoryPlan && (
             <div className={styles.plan_container}>
-              <div className={styles.plans}>
+              <div id="plans" className={styles.plans}>
                 {
                   plans.map((plan, index) => (
                     <Plan
@@ -81,11 +85,21 @@ const PlansPage = () => {
                       title={plan.name}
                       price={plan.price}
                       benefits={plan.description}
+                      priceWithDiscount={plan.priceWithDiscount}
                       image={index !== 1 ? HouseImage : HospitalImage}
                       onClick={() => assignCurrentPlan(plan)}
+                      isRecomended={index === 1}
                     />
                   ))
                 }
+              </div>
+              <div className={styles.pagination}>
+                <Pagination
+                  countPages={plans.length}
+                  currentPage={currentPlanPage}
+                  onNext={nextPlanPage}
+                  onPrevious={previousPlanPage}
+                />
               </div>
             </div>
           )

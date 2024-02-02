@@ -1,33 +1,57 @@
+/* --------------------- BRS Sonoma ---------------------------- */
 @font-face {
-  font-family: 'BR Sonoma Thin';
-  src: url("@/assets/fonts/BRSonoma-Thin.otf");
+  font-family: 'BRSonoma Thin';
+  src: url("@/assets/fonts/BRS Sonoma/BRSonoma-Thin.otf");
 }
 
 @font-face {
-  font-family: 'BR Sonoma Extra-Light';
-  src: url("@/assets/fonts/BRSonoma-ExtraLight.otf");
+  font-family: 'BRSonoma Extra-Light';
+  src: url("@/assets/fonts/BRS Sonoma/BRSonoma-ExtraLight.otf");
 }
 @font-face {
-  font-family: 'BR Sonoma Light';
-  src: url("@/assets/fonts/BRSonoma-Light.otf");
+  font-family: 'BRSonoma Light';
+  src: url("@/assets/fonts/BRS Sonoma/BRSonoma-Light.otf");
 }
 @font-face {
-  font-family: 'BR Sonoma Regular';
-  src: url("@/assets/fonts/BRSonoma-Regular.otf");
+  font-family: 'BRSonoma Regular';
+  src: url("@/assets/fonts/BRS Sonoma/BRSonoma-Regular.otf");
 }
 @font-face {
-  font-family: 'BR Sonoma Medium';
-  src: url("@/assets/fonts/BRSonoma-Medium.otf");
+  font-family: 'BRSonoma Medium';
+  src: url("@/assets/fonts/BRS Sonoma/BRSonoma-Medium.otf");
 }
 @font-face {
-  font-family: 'BR Sonoma Semi-Bold';
-  src: url("@/assets/fonts/BRSonoma-SemiBold.otf");
+  font-family: 'BRSonoma Semi-Bold';
+  src: url("@/assets/fonts/BRS Sonoma/BRSonoma-SemiBold.otf");
 }
 @font-face {
-  font-family: 'BR Sonoma Bold';
-  src: url("@/assets/fonts/BRSonoma-Bold.otf");
+  font-family: 'BRSonoma Bold';
+  src: url("@/assets/fonts/BRS Sonoma/BRSonoma-Bold.otf");
 }
 @font-face {
-  font-family: 'BR Sonoma Black';
-  src: url("@/assets/fonts/BRSonoma-Black.otf");
+  font-family: 'BRSonoma Black';
+  src: url("@/assets/fonts/BRS Sonoma/BRSonoma-Black.otf");
+}
+
+/* --------------------- LATO ---------------------------- */
+
+@font-face {
+  font-family: 'Lato Thin';
+  src: url("@/assets/fonts/Lato/Lato-Thin.ttf");
+}
+@font-face {
+  font-family: 'Lato Light';
+  src: url("@/assets/fonts/Lato/Lato-Light.ttf");
+}
+@font-face {
+  font-family: 'Lato Regular';
+  src: url("@/assets/fonts/Lato/Lato-Regular.ttf");
+}
+@font-face {
+  font-family: 'Lato Bold';
+  src: url("@/assets/fonts/Lato/Lato-Bold.ttf");
+}
+@font-face {
+  font-family: 'Lato Black';
+  src: url("@/assets/fonts/Lato/Lato-Black.ttf");
 }
