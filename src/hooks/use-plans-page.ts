@@ -63,8 +63,7 @@ export const usePlanPage = () => {
           priceWithDiscount
         }
       }))
-    }
-    
+    } else filterPlansForAge()
   }, [categoryPlan])
 
   useEffect(movePlansDOM, [currentPlanPage, plans])
