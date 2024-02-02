@@ -41,64 +41,67 @@ const LoginPage = () => {
         <div className={styles.header_contact}>
           <ContactHeader />
         </div>
-        <img src={FamilyPresentationImage} alt="family_presentation" className={styles.image} />
-        <div className={styles.form}>
-          <div className={styles.header}>
-            <div className={styles.title}>
-              <Tag color='gradient-aqua' text='Seguro Salud Flexible' />
-              <Text tag='p' size='extra-large' weight='bold' color='grey-50'>Creado para ti y tu familia</Text>
+        <div className={styles.body}>
+          <img src={FamilyPresentationImage} alt="family_presentation" className={styles.image} />
+          <div className={styles.form}>
+            <div className={styles.header}>
+              <div className={styles.title}>
+                <Tag color='gradient-aqua' text='Seguro Salud Flexible' />
+                <Text tag='p' size='extra-large' weight='bold' color='grey-50'>Creado para ti y tu familia</Text>
+              </div>
+              <img src={FamilyPresentationSmallImage} alt="family_presentation" />
             </div>
-            <img src={FamilyPresentationSmallImage} alt="family_presentation" />
-          </div>
 
-          <Text tag='p' size='small' weight='semi-bold' color='grey-50' classnames='mb-24'>
-            Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra asesoría. 100% online.
-          </Text>
-          <div className={styles.dni_select}>
-            <Select
-              items={DOCUMENTS_SELECT}
-              placeholder={DOCUMENTS_SELECT[0]}
-              onChange={(event) => updateTypeDocument(event.value)}
-              isNotRightBorderRadius
-            />
+            <Text tag='p' size='small' weight='semi-bold' color='grey-50' classnames='mb-24'>
+              Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra asesoría. 100% online.
+            </Text>
+            <div className={styles.dni_select}>
+              <Select
+                items={DOCUMENTS_SELECT}
+                placeholder={DOCUMENTS_SELECT[0]}
+                onChange={(event) => updateTypeDocument(event.value)}
+                isNotRightBorderRadius
+              />
+              <InputText
+                type='number'
+                label='Nro. de documento'
+                value={numberDocument || ""}
+                onChange={(event) => updateNumberDocument(event.target.value)}
+                isNotLeftBorder
+              />
+            </div>
+            
             <InputText
               type='number'
-              label='Nro. de documento'
-              value={numberDocument || ""}
-              onChange={(event) => updateNumberDocument(event.target.value)}
-              isNotLeftBorder
+              label='Celular'
+              classnames='mb-24'
+              value={phoneNumber || ""}
+              onChange={(event) => updatePhoneNumber(event.target.value)}
+            />
+            <div className={styles.policies}>
+              <Checkbox
+                label='Acepto lo Política de Privacidad'
+                checked={isAcceptPrivacyPolicy}
+                onClick={() => updateAcceptPrivacyPolicy(!isAcceptPrivacyPolicy)}
+              />
+              <Checkbox
+                label='Acepto la Política Comunicaciones Comerciales'
+                checked={isAcceptComercialPolicy}
+                onClick={() => updateAcceptComercialPolicy(!isAcceptComercialPolicy)}
+              />
+              <Text tag='p' size='smallest' weight='semi-bold' color='grey-50' underline pointer>Aplican Términos y Condiciones.</Text>
+            </div>
+            <Button
+              text='Cotiza aquí'
+              theme='dark'
+              size='large'
+              sizeRounded='high'
+              classnames='mt-24'
+              onClick={getUserData}
             />
           </div>
-          
-          <InputText
-            type='number'
-            label='Celular'
-            classnames='mb-24'
-            value={phoneNumber || ""}
-            onChange={(event) => updatePhoneNumber(event.target.value)}
-          />
-          <div className={styles.options}>
-            <Checkbox
-              label='Acepto lo Política de Privacidad'
-              checked={isAcceptPrivacyPolicy}
-              onClick={() => updateAcceptPrivacyPolicy(!isAcceptPrivacyPolicy)}
-            />
-            <Checkbox
-              label='Acepto la Política Comunicaciones Comerciales'
-              checked={isAcceptComercialPolicy}
-              onClick={() => updateAcceptComercialPolicy(!isAcceptComercialPolicy)}
-            />
-            <Text tag='p' size='smallest' weight='semi-bold' color='grey-50' underline pointer>Aplican Términos y Condiciones.</Text>
-          </div>
-          <Button
-            text='Cotiza aquí'
-            theme='dark'
-            size='large'
-            sizeRounded='high'
-            classnames='mt-24'
-            onClick={getUserData}
-          />
         </div>
+        
       </div>
       
       <div className={styles.footer}>

@@ -3,6 +3,7 @@
 @import "@/assets/styles/variables/responsive";
 
 .container {
+  background-color: Colors.$neutral-300;
   .contact_header {
     padding: 0 120px;
   }
@@ -23,15 +24,23 @@
       margin-bottom: 32px;
     }
 
-    .plan1 {
-      grid-column: 4/7;
+    .planCategories {
+      grid-column: 1/13;
       grid-row: 3/4;
+      margin-bottom: 20px;
+      @include grid-container(12, 32px);
+      .plan1 {
+        grid-column: 4/7;
+        height: 100%;
+      }
+    
+      .plan2 {
+        grid-column: 7/10;
+        height: 100%;
+      }
     }
-  
-    .plan2 {
-      grid-column: 7/10;
-      grid-row: 3/4;
-    }
+
+
 
     .plan_container {
       grid-column: 1/13;
@@ -43,7 +52,6 @@
         grid-column: 2/12;
         display: flex;
         gap: 32px;
-        margin-top: 24px;
         flex-wrap: wrap;
         justify-content: space-between;
         > div {
@@ -68,16 +76,19 @@
         grid-column: 1/13;
         text-align: left;
       }
-      .plan1 {
+      .planCategories {
         grid-column: 1/13;
-        grid-row: 3/4;
-        margin-bottom: 24px;
-      }
-      .plan2 {
-        grid-column: 1/13;
-        grid-row: 4/5;
+        row-gap: 24px;
         margin-bottom: 40px;
+        .plan1 {
+          grid-column: 1/13;
+        }
+        .plan2 {
+          grid-column: 1/13;
+          grid-row: 2/3;
+        }
       }
+      
       .plan_container {
         grid-row: 5/6;
         overflow-x: hidden;

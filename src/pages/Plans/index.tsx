@@ -38,6 +38,7 @@ const PlansPage = () => {
         <StepLine
           steps={['Planes y coberturas', 'Resumen']}
           currentStep={1}
+          onBackPage={goToBackPage}
         />
       </div>
       <div className={styles.body}>
@@ -48,25 +49,27 @@ const PlansPage = () => {
           <Text tag='p' color='neutral-50' size='big' weight='bold'>{AuthStore.user?.name} ¿Para quién deseas cotizar?</Text>
           <Text tag='p' color='neutral-50' size='regular' weight='regular'>Selecciona la opción que se ajuste más a tus necesidades.</Text>
         </div>
-
-        <div className={styles.plan1}>
-          <PlanCategory
-            title='Para mí'
-            description='Cotiza tu seguro de salud y agrega familiares si así lo deseas.'
-            checked={categoryPlan === 'for-me'}
-            image={ForMePlanImage}
-            onClick={() => updateCategoryPlan('for-me')}
-          />
+        <div className={styles.planCategories}>
+          <div className={styles.plan1}>
+            <PlanCategory
+              title='Para mí'
+              description='Cotiza tu seguro de salud y agrega familiares si así lo deseas.'
+              checked={categoryPlan === 'for-me'}
+              image={ForMePlanImage}
+              onClick={() => updateCategoryPlan('for-me')}
+            />
+          </div>
+          <div className={styles.plan2}>
+            <PlanCategory
+              title='Para alguien mas'
+              description='Cotiza tu seguro de salud y agrega familiares si así lo deseas.'
+              checked={categoryPlan === 'for-someone-else'}
+              image={ForMorePlanImage}
+              onClick={() => updateCategoryPlan('for-someone-else')}
+            />
+          </div>
         </div>
-        <div className={styles.plan2}>
-          <PlanCategory
-            title='Para alguien mas'
-            description='Cotiza tu seguro de salud y agrega familiares si así lo deseas.'
-            checked={categoryPlan === 'for-someone-else'}
-            image={ForMorePlanImage}
-            onClick={() => updateCategoryPlan('for-someone-else')}
-          />
-        </div>
+        
         {
           categoryPlan && (
             <div className={styles.plan_container}>

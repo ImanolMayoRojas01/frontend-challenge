@@ -6,8 +6,12 @@
   flex-direction: column;
   border: 3px solid Colors.$grey-50;
   border-radius: 24px;
-  padding: 16px 24px;
+  padding: 16px 24px 40px 24px;
+  height: 100%;
   .check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 24px;
     height: 24px;
     border: 1px solid Colors.$neutral-200;
@@ -18,14 +22,6 @@
     &.checked {
       background-color: Colors.$green;
       border: 1px solid Colors.$green;
-      &::after{
-        content: "✔";
-        position: absolute;
-        top:50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        color: white;
-      }
     }
   }
   .plan {
@@ -38,7 +34,7 @@
       margin-bottom: 8px;
       img {
         width: max-content;
-        object-fit: cover;
+        object-fit: contain;
       }
     }
   }

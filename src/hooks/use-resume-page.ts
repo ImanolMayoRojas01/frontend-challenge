@@ -1,4 +1,5 @@
 import { useAppSelector } from "@/store"
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const useResumePage = () => {
@@ -8,6 +9,10 @@ export const useResumePage = () => {
   
 
   const goToBackPage = () => navigate(-1)
+
+  useEffect(() => {
+    if (!AuthStore.user || !PlanStore.currentUserPlan) navigate('/')
+  }, [])
 
   return {
     properties: {

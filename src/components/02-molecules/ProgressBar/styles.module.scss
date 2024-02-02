@@ -1,0 +1,20 @@
+@use "@/assets/styles/variables/colors" as Colors;
+
+.container {
+  display: flex;
+
+  width: 100%;
+  height: 6px;
+
+  background-color: Colors.$neutral-250;
+  border-radius: 20px;
+  div {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: transparent;
+    &.complete {
+      background-color: Colors.$blue-berry;
+    }
+  }
+}

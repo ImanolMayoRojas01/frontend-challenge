@@ -13,10 +13,9 @@ const BackButton: FC<BackButtonProps> = ({ text, onClick }) => {
     <div className={styles.container} onClick={onClick}>
       <div className={styles.button}>
         <Icon
-          icon='angle-down'
-          classnames={styles.rotate}
+          icon='arrow-left'
           color='blue-berry'
-          size={12}
+          size={10}
         />
       </div>
       <Text tag='p' color='blue-berry' size='medium' weight='bold'>{text}</Text>

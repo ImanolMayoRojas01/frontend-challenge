@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styles from './styles.module.scss'
 import { getClassnames } from '@/utils/styles.utils'
 import Text from '@/components/01-atoms/Text'
+import Icon from '@/components/01-atoms/Icon'
 
 type PlanCategoryProps = {
   checked: boolean
@@ -20,7 +21,13 @@ const PlanCategory: FC<PlanCategoryProps> = ({ checked, title, description, imag
           checked && styles.checked
         ])}
         onClick={onClick}
-      ></div>
+      >
+        <Icon
+          icon='check'
+          color='white'
+          size={11}
+        />
+      </div>
       <div className={styles.plan}>
         <div className={styles.title}>
           <img src={image} alt="plan_image" />

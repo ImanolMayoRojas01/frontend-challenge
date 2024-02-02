@@ -8,6 +8,8 @@
   }
   .body {
     @include grid-container(12, 32px);
+    padding: 0 120px 40px 120px;
+    overflow: auto;
     .back_button {
       padding: 64px 0 32px 0;
       grid-column: 2/5;

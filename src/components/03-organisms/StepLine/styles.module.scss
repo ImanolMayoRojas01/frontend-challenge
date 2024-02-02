@@ -19,8 +19,11 @@
       .number {
         display: flex;
         align-items: center;
-        width: max-content;
-        padding: 4px 8px;
+        justify-content: center;
+        
+        width: 24px;
+        height: 24px;
+
         border-radius: 50%;
         color: Colors.$neutral-100;
         border: 1px solid Colors.$neutral-100;
@@ -53,11 +56,41 @@
 
   }
 
-  .step-bar {
+  .step_bar {
     display: none;
+
+    width: 100%;
+    padding: 0 24px;
+
+    align-items: center;
+    .back_button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid Colors.$neutral-200;
+    }
+    > p {
+      width: max-content;
+      white-space: nowrap;
+    }
   }
+}
 
-  .back_button {
-
+@include screen-mobile {
+  .container {
+    background-color: transparent;
+    border-bottom: 1px solid Colors.$neutral-150;
+    .step_text {
+      display: none;
+    }
+    .step_bar {
+      display: grid;
+      grid-template-columns: max-content max-content auto;
+      column-gap: 16px;
+    }
   }
 }
