@@ -1,4 +1,6 @@
+@use "@/assets/styles/variables/paddings" as Paddings;
 @import "@/assets/styles/variables/responsive";
+
 
 .container {
   display: flex;
@@ -7,6 +9,8 @@
   align-items: center;
   width: 100%;
   padding: 14px 0;
+  padding-left: Paddings.$desktop-padding-left;
+  padding-right: Paddings.$desktop-padding-right;
   .logo {
     object-fit: contain;
   }
@@ -25,6 +29,8 @@
 
 @include screen-mobile {
   .container {
+    padding-left: Paddings.$mobile-padding-left;
+    padding-right: Paddings.$mobile-padding-right;
     .contact > :first-child {
       display: none;
     }

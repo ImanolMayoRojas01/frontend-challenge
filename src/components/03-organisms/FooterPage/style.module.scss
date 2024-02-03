@@ -1,12 +1,15 @@
 @use "@/assets/styles/variables/colors.scss" as Colors;
+@use "@/assets/styles/variables/paddings" as Paddings;
 @import "@/assets/styles/variables/responsive";
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 120px;
+  padding: 32px 0;
   background-color: Colors.$grey-50;
+  padding-left: Paddings.$desktop-padding-left;
+  padding-right: Paddings.$desktop-padding-right;
   img {
     object-fit: contain;
   }
@@ -14,9 +17,10 @@
 
 @include screen-mobile {
   .container {
-    padding: 32px 24px;
     flex-direction: column;
     gap: 24px;
+    padding-left: Paddings.$mobile-padding-left;
+    padding-right: Paddings.$mobile-padding-right;
     .separator {
       width: 100%;
       height: 1px;

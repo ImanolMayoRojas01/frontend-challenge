@@ -22,21 +22,59 @@
 .color-white { color: white; }
 
 /* ------------------ FONTS -------------------------- */
-.font-BRS-Thin { font-family: 'BRSonoma Thin'; }
-.font-BRS-ExtraLight { font-family: 'BRSonoma Extra-Light'; }
-.font-BRS-Light { font-family: 'BRSonoma Light'; }
-.font-BRS-Regular { font-family: 'BRSonoma Regular'; }
-.font-BRS-Medium { font-family: 'BRSonoma Medium'; }
-.font-BRS-SemiBold { font-family: 'BRSonoma Semi-Bold'; }
-.font-BRS-Bold { font-family: 'BRSonoma Bold'; }
-.font-BRS-Black { font-family: 'BRSonoma Black'; }
+.font-BRS-Thin {
+  font-family: 'BRSonoma';
+  font-weight: 100;
+}
+.font-BRS-ExtraLight {
+  font-family: 'BRSonoma';
+  font-weight: 200;
+}
+.font-BRS-Light {
+  font-family: 'BRSonoma';
+  font-weight: 300;
+}
+.font-BRS-Regular {
+  font-family: 'BRSonoma';
+  font-weight: 400;
+}
+.font-BRS-Medium {
+  font-family: 'BRSonoma';
+  font-weight: 500;
+}
+.font-BRS-SemiBold {
+  font-family: 'BRSonoma';
+  font-weight: 600;
+}
+.font-BRS-Bold {
+  font-family: 'BRSonoma';
+  font-weight: 700;
+}
+.font-BRS-Black {
+  font-family: 'BRSonoma';
+  font-weight: 900;
+}
 
-.font-Lato-Thin { font-family: 'Lato Thin'; }
-.font-Lato-Light { font-family: 'Lato Light'; }
-.font-Lato-Regular { font-family: 'Lato Regular'; }
-.font-Lato-Bold { font-family: 'Lato Bold'; }
-.font-Lato-Black { font-family: 'Lato Black'; }
-
+.font-Lato-Thin {
+  font-family: 'Lato';
+  font-weight: 100;
+}
+.font-Lato-Light {
+  font-family: 'Lato';
+  font-weight: 300;
+}
+.font-Lato-Regular {
+  font-family: 'Lato';
+  font-weight: 500;
+}
+.font-Lato-Bold {
+  font-family: 'Lato';
+  font-weight: 700;
+}
+.font-Lato-Black {
+  font-family: 'Lato';
+  font-weight: 900;
+}
 
 /* ------------------ EXTRAS -------------------------- */
 .center { text-align: center; }

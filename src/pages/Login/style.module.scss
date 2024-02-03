@@ -1,119 +1,110 @@
 @use "@/assets/styles/variables/colors" as Colors;
+@use "@/assets/styles/variables/paddings" as Paddings;
 @import "@/assets/styles/variables/mixins";
 @import "@/assets/styles/variables/responsive";
 
 .container {
   width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  .content {
-    @include grid-container(12, 32px);
-    padding: 0 120px;
-    width: 100%;
+  margin: 0;
+  grid-template-rows: max-content auto max-content;
+  height: 100vh;
+  .header_contact {
+    grid-column: 1/13;
     margin-bottom: 32px;
-    .header_contact {
-      grid-column: 1/13;
-      margin-bottom: 32px;
-      > div {
-        grid-column: 1/12;
-      }
+  }
+  .body {
+    grid-column: 1/13;
+    max-width: 1920px;
+    align-self: flex-start;
+    padding: 0 Paddings.$desktop-padding-left;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 32px;
+    grid-column: 1/13;
+    overflow: auto;
+    margin-bottom: 32px;
+    .image {
+      grid-column: 1/6;
+      grid-row: 2/3;
+      object-fit: cover;
+      max-width: 100%;
+      border-radius: 24px;
     }
-    .body {
-      grid-column: 1/13;
-      overflow: auto;
-      @include grid-container(12, 32px);
-      margin-bottom: 180px;
-      .image {
-        grid-column: 1/6;
-        grid-row: 2/3;
-        object-fit: cover;
-        max-width: 100%;
-        border-radius: 24px;
-      }
-      .form {
-        grid-column: 7/11;
-        grid-row: 2/3;
+    .form {
+      grid-column: 7/11;
+      grid-row: 2/3;
+      display: flex;
+      flex-direction: column;
+      height: max-content;
+      .header {
         display: flex;
-        flex-direction: column;
-        height: max-content;
-        .header {
-          display: flex;
-          gap: 12px;
-          margin-bottom: 8px;
-          .title {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-          }
-          img {
-            display: none;
-            border-radius: 16px;
-            object-fit: contain;
-          }
-        }
-        .dni_select {
-          display: grid;
-          grid-template-columns: 40% 60%;
-          margin-bottom: 16px;
-          > * {
-            width: 100%;
-          }
-        }
-
-        .policies {
+        gap: 12px;
+        margin-bottom: 8px;
+        .title {
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
-          gap: 12px;
-          > div {
-            // width: 100%;
-          }
+          gap: 16px;
+        }
+        img {
+          display: none;
+          border-radius: 16px;
+          object-fit: contain;
         }
       }
+      .dni_select {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        margin-bottom: 16px;
+        > * {
+          width: 100%;
+        }
+      }
+
+      .policies {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
     }
-    
-
   }
-
   .footer {
     grid-column: 1/13;
     grid-row: 3/3;
-    position: fixed;
-    width: 100%;
-    top: 100%;
-    transform: translateY(-100%);
   }
 }
 
 @include screen-mobile {
   .container {
-    .content {
-      padding: 0 20px 0 20px;
-      .header_contact {
-        margin-bottom: 0;
+    .header_contact {
+      grid-column: 1/5;
+      margin-bottom: 0;
+    }
+    .body {
+      grid-column: 1/5;
+      padding: 0 Paddings.$mobile-padding-left;
+      .image {
+        display: none;
       }
-      .body {
-        .image {
-          display: none;
-        }
-        .form {
-          grid-column: 1/13;
-          .header {
-            padding-bottom: 24px;
-            margin-bottom: 24px;
-            align-items: center;
-            border-bottom: 1px solid Colors.$grey-250;
-            justify-content: space-between;
-            img {
-              display: flex;
-            }
-          }
-          .policies {
-            gap: 16px;
+      .form {
+        grid-column: 1/5;
+        .header {
+          padding-bottom: 24px;
+          margin-bottom: 24px;
+          align-items: center;
+          border-bottom: 1px solid Colors.$grey-250;
+          justify-content: space-between;
+          img {
+            display: flex;
           }
         }
+        .policies {
+          gap: 16px;
+        }
       }
-      
+    }
+    .footer {
+      grid-column: 1/5;
     }
   }
 }
