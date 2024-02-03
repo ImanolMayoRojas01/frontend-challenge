@@ -21,10 +21,12 @@
     align-self: flex-start;
     grid-column: 1/13;
     width: 100%;
+    height: 100%;
     max-width: 1920px;
     margin: 0 auto;
     padding-left: Dimensions.$desktop-padding-left;
     padding-right: Dimensions.$desktop-padding-right;
+    grid-auto-rows: max-content;
     .back_button {
       grid-column: 2/5;
       padding: 40px 0 56px 0; 

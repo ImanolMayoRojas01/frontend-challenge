@@ -4,21 +4,21 @@
 
 .container {
   grid-template-rows: max-content auto max-content;
+  overflow: auto;
   .body {
     grid-column: 1/13;
     max-width: 1920px;
     align-self: flex-start;
+    padding-top: 32px;
+    padding-bottom: 32px;
     padding-left: Dimensions.$desktop-padding-left;
     padding-right: Dimensions.$desktop-padding-right;
     width: 100%;
+    height: 100%;
     margin: 0 auto;
-    margin-top: 32px;
-    margin-bottom: 32px;
     grid-column: 1/13;
-    overflow: auto;
     .image {
       grid-column: 1/6;
-      grid-row: 2/3;
       object-fit: cover;
       max-width: 100%;
       border-radius: 24px;
@@ -28,10 +28,8 @@
     }
     .form {
       grid-column: 7/11;
-      grid-row: 2/3;
       display: flex;
       flex-direction: column;
-      height: max-content;
       .header {
         display: flex;
         gap: 12px;
@@ -91,6 +89,7 @@
     @include screen-mobile {
       grid-column: 1/5;
       padding: 0 Dimensions.$mobile-padding-left;
+      padding-bottom: 32px;
       margin-top: 0;
     }
   }

@@ -11,8 +11,10 @@ import MainLayout from '@/components/06-layouts/MainLayout/MainLayout'
 
 import { useLoginPage } from '@/hooks/use-login-page'
 import { getClassnames } from '@/utils/styles.utils'
+
 import FamilyPresentationImage from '@/assets/images/family-presentation.png'
 import FamilyPresentationSmallImage from '@/assets/images/family-presentation-small.png'
+
 
 const LoginPage = () => {
 
@@ -74,6 +76,7 @@ const LoginPage = () => {
                 label='Nro. de documento'
                 value={numberDocument || ""}
                 onChange={(event) => updateNumberDocument(event.target.value)}
+                onKeyDown={() => {}}
                 isNotLeftBorder
               />
             </div>

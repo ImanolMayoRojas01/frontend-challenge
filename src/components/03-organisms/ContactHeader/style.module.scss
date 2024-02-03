@@ -2,36 +2,43 @@
 @import "@/assets/styles/variables/responsive";
 
 .container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
-  margin: 0 auto;
-  padding: 14px 0;
-  max-width: Dimensions.$max-width-content;
-  padding-left: Dimensions.$desktop-padding-left;
-  padding-right: Dimensions.$desktop-padding-right;
-  .logo {
-    object-fit: contain;
-  }
-  .contact {
+  background-color: transparent;
+  .content {
     display: flex;
-    gap: 16px;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     align-items: center;
-    .phone_content {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 14px 0;
+    max-width: Dimensions.$max-width-content;
+    padding-left: Dimensions.$desktop-padding-left;
+    padding-right: Dimensions.$desktop-padding-right;
+    .logo {
+      object-fit: contain;
+      width: 74px;
+      height: 36px;
     }
-    > :first-child {
-      @include screen-mobile {
-        display: none;
+    .contact {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      .phone_content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      > :first-child {
+        @include screen-mobile {
+          display: none;
+        }
       }
     }
+    @include screen-mobile {
+      padding-left: Dimensions.$mobile-padding-left;
+      padding-right: Dimensions.$mobile-padding-right;
+    }
   }
-  @include screen-mobile {
-    padding-left: Dimensions.$mobile-padding-left;
-    padding-right: Dimensions.$mobile-padding-right;
-  }
+
 }

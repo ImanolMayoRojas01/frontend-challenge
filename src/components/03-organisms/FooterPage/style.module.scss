@@ -17,6 +17,8 @@
     padding-right: Dimensions.$desktop-padding-right;
     img {
       object-fit: contain;
+      width: 86px;
+      height: 42px;
     }
     .separator {
       display: none;
