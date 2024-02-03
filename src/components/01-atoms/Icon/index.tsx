@@ -1,12 +1,16 @@
 import styles from './styles.module.scss'
 
 import { FC, useEffect, useState } from 'react'
-import { Colors, Icons } from '@/types/app/app'
+import { Icons } from '@/types/app/app'
+
+type IconColors = 'grey-50' | 'grey-100' | 'blue-berry' | 'neutral-50' | 'grey-150' |
+'neutral-100' | 'green' | 'green-aqua' | 'primary-red' | 'white' | 'grey-200' |
+'neutral-200' | 'transparent'
 
 type IconProps = {
   icon: Icons
   size?: number
-  color?: Colors
+  color?: IconColors
   title?: string
   classnames?: string
   onClick?():void

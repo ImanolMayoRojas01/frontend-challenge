@@ -30,7 +30,7 @@ const Checkbox: FC<CheckboxProps> = ({ label, checked, isDisabled, onClick }) =>
       >
         <Icon
           icon='check-plain'
-          color='white'
+          color={checked ? 'white' : 'transparent'}
           size={11}
         />
       </div>
