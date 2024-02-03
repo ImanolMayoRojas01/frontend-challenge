@@ -20,8 +20,8 @@ export const useLoginPage = () => {
   const navigate = useNavigate()
 
   const [typeDocument, setTypeDocument] = useState<UserDocumentType>('dni')
-  const [numberDocument, setNumberDocument] = useState<string | undefined>('75450278')
-  const [phoneNumber, setPhoneNumber] = useState<string | undefined>('946422312')
+  const [numberDocument, setNumberDocument] = useState<string | undefined>(undefined)
+  const [phoneNumber, setPhoneNumber] = useState<string | undefined>(undefined)
   const [isAcceptComercialPolicy, setIsAcceptComercialPolicy] = useState<boolean | undefined>(undefined)
   const [isAcceptPrivacyPolicy, setIsAcceptPrivacyPolicy] = useState<boolean | undefined>(undefined)
 
@@ -61,11 +61,11 @@ export const useLoginPage = () => {
       else setErrMessagePhoneNumber("")
     }
     if (isAcceptComercialPolicy !== undefined) {
-      if (isAcceptComercialPolicy === false) setErrMessageAcceptComercial("Aceptar este campo es obligatorio")
+      if (isAcceptComercialPolicy === false) setErrMessageAcceptComercial("Este campo es obligatorio")
       else setErrMessageAcceptComercial("")
     }
     if (isAcceptPrivacyPolicy !== undefined) {
-      if (isAcceptPrivacyPolicy === false) setErrMessageAcceptPrivacity("Aceptar este campo es obligatorio")
+      if (isAcceptPrivacyPolicy === false) setErrMessageAcceptPrivacity("Este campo es obligatorio")
       else setErrMessageAcceptPrivacity("")
     }
   }

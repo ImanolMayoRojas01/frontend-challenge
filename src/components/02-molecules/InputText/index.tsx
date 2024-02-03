@@ -26,10 +26,16 @@ const InputText = forwardRef<HTMLInputElement, InputTextProps>(
       const isPressBackSlash = event.code === "Backslash"
       const isPressNumpadDecimal = event.code === "NumpadDecimal"
 
+      const isPressMinus = event.code === 'Minus'
+
+      const isPressArrowUp = event.code === 'ArrowUp'
+      const isPressArrowDown = event.code === 'ArrowDown'
+
       if (
         isPressE || isPressSlash || isPressPeriod || isPressNumpadAdd ||
         isPressNumpadSubtract || isPressBracketRight || isPressCouote ||
-        isPressBackSlash || isPressNumpadDecimal
+        isPressBackSlash || isPressNumpadDecimal || isPressArrowUp ||
+        isPressArrowDown || isPressMinus
       ) return event.preventDefault()
     }
 

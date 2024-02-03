@@ -96,7 +96,7 @@ const LoginPage = () => {
           <div className={styles.policies}>
             <div>
               <Checkbox
-                label='Acepto lo Política de Privacidad'
+                label='Acepto la Política de Privacidad'
                 checked={!!isAcceptPrivacyPolicy}
                 onClick={() => updateAcceptPrivacyPolicy(!isAcceptPrivacyPolicy)}
               />
