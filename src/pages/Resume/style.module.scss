@@ -2,6 +2,10 @@
 @use "@/assets/styles/variables/dimensions" as Dimensions;
 @import "@/assets/styles/variables/responsive";
 
+body {
+  background-color: Colors.$neutral-300;
+}
+
 .container {
   background-color: Colors.$neutral-300;
   grid-template-rows: max-content max-content auto;

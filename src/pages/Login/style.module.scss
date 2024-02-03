@@ -3,11 +3,12 @@
 @import "@/assets/styles/variables/responsive";
 
 .container {
+  background: linear-gradient(70deg, rgba(195,51,255,1) -20%, rgba(255,255,255,1) 23%, rgba(255,255,255,1) 75%, rgba(0,244,226,1) 125%);
   grid-template-rows: max-content auto max-content;
   overflow: auto;
   .body {
     grid-column: 1/13;
-    max-width: 1920px;
+    max-width: Dimensions.$max-width-content;
     align-self: flex-start;
     padding-top: 32px;
     padding-bottom: 32px;
@@ -99,5 +100,9 @@
     @include screen-mobile {
       grid-column: 1/5;
     }
+  }
+
+  @include screen-mobile {
+    background: linear-gradient(30deg, rgba(195,51,255,1) -20%, rgba(255,255,255,1) 23%, rgba(255,255,255,1) 80%, rgba(0,244,226,1) 170%);
   }
 }

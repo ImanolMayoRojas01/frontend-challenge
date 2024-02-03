@@ -1,4 +1,4 @@
-import { FetchStateType } from "../app/store.models"
+import { FetchStateType } from "../app/store"
 
 export type PlanEntity = {
   name: string

@@ -1,4 +1,4 @@
-import { PlanEntity } from "@/core/models/store/plan.models"
+import { PlanEntity } from "@/types/models/plan-store.models"
 import { useAppDispatch, useAppSelector } from "@/store"
 import { A_GET_PLANS, A_SET_CURRENT_USER_PLAN } from "@/store/plans/actions"
 import { useEffect, useState } from "react"

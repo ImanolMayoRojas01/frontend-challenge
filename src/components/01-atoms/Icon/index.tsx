@@ -1,7 +1,7 @@
 import styles from './styles.module.scss'
 
 import { FC, useEffect, useState } from 'react'
-import { Colors, Icons } from '@/core/models/app/app.models'
+import { Colors, Icons } from '@/types/app/app'
 
 type IconProps = {
   icon: Icons

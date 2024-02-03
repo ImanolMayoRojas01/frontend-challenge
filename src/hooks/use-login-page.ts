@@ -1,6 +1,6 @@
 import { SelectItemType } from "@/components/02-molecules/Select"
 import { USER_DNI_DIGITS, USER_PHONE_DIGITS } from "@/constants/global"
-import { UserDocumentType } from "@/core/models/store/user.model"
+import { UserDocumentType } from "@/types/models/user-store.model"
 import { useAppDispatch, useAppSelector } from "@/store"
 import { A_AUTH_RESET_FETCH_STATES, A_GET_USER } from "@/store/auth/actions"
 import { evaluateFetchStateSimple } from "@/utils/store.utils"

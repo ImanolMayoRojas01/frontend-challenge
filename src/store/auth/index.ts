@@ -1,4 +1,4 @@
-import { AuthStateType } from "@/core/models/store/auth.models";
+import { AuthStateType } from "@/types/models/auth-store.models";
 import { createReducer } from "@reduxjs/toolkit";
 import { A_AUTH_RESET_FETCH_STATES, A_GET_USER } from "./actions";
 

@@ -1,4 +1,4 @@
-import { UserDocumentType, UserEntity } from "@/core/models/store/user.model";
+import { UserDocumentType, UserEntity } from "@/types/models/user-store.model";
 import { getApiConnection } from "@/utils/api.utils";
 // import { user_fake_data } from "@/utils/mockup-data";
 import { differenceInYears } from "date-fns";

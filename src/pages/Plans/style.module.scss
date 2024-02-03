@@ -2,8 +2,12 @@
 @use "@/assets/styles/variables/dimensions" as Dimensions;
 @import "@/assets/styles/variables/responsive";
 
-.container {
+body {
   background-color: Colors.$neutral-300;
+}
+
+.container {
+  // background-color: red;
   grid-template-rows: max-content max-content auto;
   .step_line {
     grid-column: 1/13;

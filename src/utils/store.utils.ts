@@ -1,4 +1,4 @@
-import { FetchStateType } from "../core/models/app/store.models"
+import { FetchStateType } from "../types/app/store"
 
 
 export type EvaluateFetchStateSimpleProps = {

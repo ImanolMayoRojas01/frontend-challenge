@@ -1,4 +1,4 @@
-import { PlantStateType } from "@/core/models/store/plan.models";
+import { PlantStateType } from "@/types/models/plan-store.models";
 import { createReducer } from "@reduxjs/toolkit";
 import { A_GET_PLANS, A_PLANS_RESET_FETCH_STATES, A_SET_CURRENT_USER_PLAN } from "./actions";
 

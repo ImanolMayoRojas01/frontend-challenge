@@ -1,4 +1,4 @@
-import { PlanEntity } from "@/core/models/store/plan.models";
+import { PlanEntity } from "@/types/models/plan-store.models";
 import { getApiConnection } from "@/utils/api.utils";
 // import { plans_fake_data } from "@/utils/mockup-data";
 

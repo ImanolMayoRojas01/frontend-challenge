@@ -1,5 +1,5 @@
-import { PlanEntity } from "@/core/models/store/plan.models";
-import { getPlans } from "@/core/services/plans/get-plans";
+import { PlanEntity } from "@/types/models/plan-store.models";
+import { getPlans } from "@/services/plans/get-plans";
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const A_PLANS_RESET_FETCH_STATES = createAction("plan/reset-fetch-states")
