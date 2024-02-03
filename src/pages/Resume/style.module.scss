@@ -24,7 +24,7 @@ body {
     padding-right: Dimensions.$desktop-padding-right;
     width: 100%;
     height: 100%;
-    max-width: 1920px;
+    max-width: Dimensions.$max-width-content;;
     margin: 0 auto;
     padding-top: 64px;
     padding-bottom: 32px;
