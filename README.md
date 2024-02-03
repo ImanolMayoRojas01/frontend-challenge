@@ -11,15 +11,15 @@
 
 - [Consideraciones antes de iniciar el proyecto](#consideraciones-antes-de-realizar-el-proyecto)
 - [Librerías y herramientas utilizadas](#librerías-y-herramientas-utilizadas)
-- [Pasos para la realización del proyecto]("#pasos-para-la-realización-del-proyecto")
-- [Estructura de carpetas]("#estructura-de-carpetas")
-- [Guia de instalación]("#guia-de-instalación")
+- [Pasos para la realización del proyecto](#pasos-para-la-realización-del-proyecto)
+- [Estructura de carpetas](#estructura-de-carpetas)
+- [Guia de instalación](#guia-de-instalación)
 
-## Consideraciones antes de realizar el proyecto
+## Consideraciones antes de realizar el proyecto 📝
 ---
 Para la creación del proyecto se tuvo en consideración usar Vite por su rapidez
  
-## Librerías y herramientas utilizadas
+## Librerías y herramientas utilizadas 🛠️
 ---
 - `react y typescript`
 - `sass y css modules`
@@ -29,7 +29,7 @@ Para la creación del proyecto se tuvo en consideración usar Vite por su rapide
 - `date-fns` *para manejo de fechas*
 - `use-onclickoutside` *para manejar eventos click fuera del contenedor*
 
-## Pasos para la realización del proyecto
+## Pasos para la realización del proyecto 📑
 ---
 Para el desarrollo del proyecto, se tuvo en cuenta una serie de pasos a realizar en order, los cuales son:
 
@@ -42,7 +42,7 @@ Para el desarrollo del proyecto, se tuvo en cuenta una serie de pasos a realizar
 7. Se integraron las api's, la lógica y el funcionamiento del proyecto
 8. Se desplego el proyecto en aws amplif
 
-## Estructura de carpetas
+## Estructura de carpetas 📂
 ---
 ```typescript
  - src
@@ -69,7 +69,7 @@ Para el desarrollo del proyecto, se tuvo en cuenta una serie de pasos a realizar
    - utils             // Funciones utilitarias
 ```
 
-## Guia de instalación
+## Guia de instalación 💻
 ---
 A continuación detallare los pasos a seguir para lograr levantar el proyecto de manera local:
 - Ejecutar el comando yarn install o npm install para instalar todas las dependenci
