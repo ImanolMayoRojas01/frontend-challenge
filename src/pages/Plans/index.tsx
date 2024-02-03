@@ -1,18 +1,19 @@
-import StepLine from '@/components/03-organisms/StepLine'
 import styles from './style.module.scss'
+
 import Text from '@/components/01-atoms/Text'
-import ContactHeader from '@/components/03-organisms/ContactHeader'
-import PlanCategory from '@/components/03-organisms/PlanCategory'
-
-import ForMePlanImage from '@/assets/images/user-shield.png'
-import ForMorePlanImage from '@/assets/images/user-shield-plus.png'
-import { usePlanPage } from '@/hooks/use-plans-page'
-import Plan from '@/components/03-organisms/Plan'
-
-import HouseImage from '@/assets/images/house.png'
-import HospitalImage from '@/assets/images/hospital.png'
 import BackButton from '@/components/02-molecules/BackButton'
 import Pagination from '@/components/02-molecules/Pagination'
+import PlanCategory from '@/components/03-organisms/PlanCategory'
+import StepLine from '@/components/03-organisms/StepLine'
+import Plan from '@/components/03-organisms/Plan'
+import MainLayout from '@/components/06-layouts/MainLayout/MainLayout'
+
+import { usePlanPage } from '@/hooks/use-plans-page'
+import { getClassnames } from '@/utils/styles.utils'
+import ForMePlanImage from '@/assets/images/user-shield.png'
+import ForMorePlanImage from '@/assets/images/user-shield-plus.png'
+import HouseImage from '@/assets/images/house.png'
+import HospitalImage from '@/assets/images/hospital.png'
 
 const PlansPage = () => {
   const { properties, methods } = usePlanPage()
@@ -33,11 +34,7 @@ const PlansPage = () => {
   } = methods
 
   return (
-    <div className={styles.container}>
-      <div className={styles.contact_header}>
-        <ContactHeader />
-      </div>
-      
+    <MainLayout classnames={styles.container}>
       <div className={styles.step_line}>
         <StepLine
           steps={['Planes y coberturas', 'Resumen']}
@@ -45,15 +42,25 @@ const PlansPage = () => {
           onBackPage={goToBackPage}
         />
       </div>
-      <div className={styles.body}>
+      <div
+        className={getClassnames([
+          styles.body,
+          'grid'
+        ])}
+      >
         <div className={styles.back_button}>
           <BackButton text='Volver' onClick={goToBackPage} />
         </div>
         <div className={styles.information}>
-          <Text tag='p' color='neutral-50' size='big' font='Lato-Bold'>{AuthStore.user?.name} ¿Para quién deseas cotizar?</Text>
+          <Text tag='h1' color='neutral-50' size='big' font='Lato-Bold'>{AuthStore.user?.name} ¿Para quién deseas cotizar?</Text>
           <Text tag='p' color='neutral-50' size='regular' font='Lato-Regular'>Selecciona la opción que se ajuste más a tus necesidades.</Text>
         </div>
-        <div className={styles.planCategories}>
+        <div
+          className={getClassnames([
+            styles.planCategories,
+            'grid'
+          ])}
+        >
           <div className={styles.plan1}>
             <PlanCategory
               title='Para mí'
@@ -76,7 +83,12 @@ const PlansPage = () => {
         
         {
           categoryPlan && (
-            <div className={styles.plan_container}>
+            <div
+              className={getClassnames([
+                styles.plan_container,
+                'grid'
+              ])}
+            >
               <div id="plans" className={styles.plans}>
                 {
                   plans.map((plan, index) => (
@@ -105,8 +117,7 @@ const PlansPage = () => {
           )
         }
       </div>
-      
-    </div>
+    </MainLayout>
   )
 }
 

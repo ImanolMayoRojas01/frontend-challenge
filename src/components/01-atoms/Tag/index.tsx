@@ -1,5 +1,6 @@
-import { FC } from 'react'
 import styles from './styles.module.scss'
+
+import { FC } from 'react'
 import Text from '../Text'
 import { getClassnames } from '@/utils/styles.utils'
 
@@ -16,7 +17,7 @@ const Tag: FC<TagProps> = ({ text, color }) => {
         color && `${styles['color-' + color]}`
       ])}
     >
-      <Text tag='p' color='grey-50' size='small' font='BRS-Bold'>{text}</Text>
+      <Text tag='span' color='grey-50' size='small' font='BRS-Bold'>{text}</Text>
     </div>
   )
 }

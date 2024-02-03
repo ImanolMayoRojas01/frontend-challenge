@@ -1,0 +1,13 @@
+@import "@/assets/styles/variables/responsive";
+
+.container {
+  width: 100%;
+  margin: 0;
+  height: 100vh;
+  .contact_header {
+    grid-column: 1/13;
+    @include screen-mobile {
+      grid-column: 1/5;
+    }
+  }
+}

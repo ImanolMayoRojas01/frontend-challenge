@@ -4,6 +4,9 @@
   display: flex;
   width: max-content;
   cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  border: none;
   &.rounded-low {
     border-radius: 40px;
   }

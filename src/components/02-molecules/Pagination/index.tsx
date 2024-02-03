@@ -1,7 +1,10 @@
-import Icon from '@/components/01-atoms/Icon'
 import styles from './styles.module.scss'
-import Text from '@/components/01-atoms/Text'
+
 import { FC } from 'react'
+
+import Icon from '@/components/01-atoms/Icon'
+import Text from '@/components/01-atoms/Text'
+
 
 type PaginationProps = {
   countPages: number
@@ -20,9 +23,9 @@ const Pagination: FC<PaginationProps> = ({ countPages, currentPage, onPrevious, 
         />
       </div>
       <div className={styles.indicators}>
-        <Text tag='p' color='neutral-50' size='regular' font='Lato-Regular'>{currentPage}</Text>
-        <Text tag='p' color='neutral-50' size='regular' font='Lato-Regular'>/</Text>
-        <Text tag='p' color='neutral-50' size='regular' font='Lato-Regular'>{countPages}</Text>
+        <Text tag='span' color='neutral-50' size='regular' font='Lato-Regular'>{currentPage}</Text>
+        <Text tag='span' color='neutral-50' size='regular' font='Lato-Regular'>/</Text>
+        <Text tag='span' color='neutral-50' size='regular' font='Lato-Regular'>{countPages}</Text>
       </div>
       <div className={styles.btn} onClick={onNext}>
         <Icon

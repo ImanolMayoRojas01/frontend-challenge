@@ -1,6 +1,8 @@
-import { FC } from 'react'
 import styles from './styles.module.scss'
+
+import { FC } from 'react'
 import { getClassnames } from '@/utils/styles.utils'
+
 import Text from '../Text'
 
 type ButtonProps = {
@@ -15,7 +17,7 @@ type ButtonProps = {
 
 const Button: FC<ButtonProps> = ({ text, theme, size, onClick, fullwidth, sizeRounded, classnames }) => {
   return (
-    <div
+    <button
       className={getClassnames([
         styles.container,
         styles[`theme-${theme}`],
@@ -26,8 +28,8 @@ const Button: FC<ButtonProps> = ({ text, theme, size, onClick, fullwidth, sizeRo
       ])}
       onClick={onClick}
     >
-      <Text tag="p" size='large' font='BRS-Bold' color='white'>{text}</Text>
-    </div>
+      <Text tag="span" size='large' font='BRS-Bold' color='white'>{text}</Text>
+    </button>
   )
 }
 

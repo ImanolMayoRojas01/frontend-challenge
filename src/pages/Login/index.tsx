@@ -1,18 +1,18 @@
-import ContactHeader from '@/components/03-organisms/ContactHeader'
 import styles from './style.module.scss'
-import FooterPage from '@/components/03-organisms/FooterPage'
-import Checkbox from '@/components/02-molecules/Checkbox'
+
 import Text from '@/components/01-atoms/Text'
-import InputText from '@/components/02-molecules/InputText'
-
-import FamilyPresentationImage from '@/assets/images/family-presentation.png'
-import FamilyPresentationSmallImage from '@/assets/images/family-presentation-small.png'
-
 import Tag from '@/components/01-atoms/Tag'
 import Button from '@/components/01-atoms/Button'
+import Checkbox from '@/components/02-molecules/Checkbox'
+import InputText from '@/components/02-molecules/InputText'
 import Select from '@/components/02-molecules/Select'
+import FooterPage from '@/components/03-organisms/FooterPage'
+import MainLayout from '@/components/06-layouts/MainLayout/MainLayout'
+
 import { useLoginPage } from '@/hooks/use-login-page'
 import { getClassnames } from '@/utils/styles.utils'
+import FamilyPresentationImage from '@/assets/images/family-presentation.png'
+import FamilyPresentationSmallImage from '@/assets/images/family-presentation-small.png'
 
 const LoginPage = () => {
 
@@ -20,7 +20,6 @@ const LoginPage = () => {
   
   const {
     DOCUMENTS_SELECT,
-    // typeDocument,
     numberDocument,
     phoneNumber,
     isAcceptPrivacyPolicy,
@@ -37,15 +36,7 @@ const LoginPage = () => {
   } = methods
 
   return (
-    <div
-      className={getClassnames([
-        styles.container,
-        'grid'
-      ])}
-    >
-      <div className={styles.header_contact}>
-        <ContactHeader />
-      </div>
+    <MainLayout classnames={styles.container}>
       <div
         className={getClassnames([
           styles.body,
@@ -57,7 +48,7 @@ const LoginPage = () => {
           <div className={styles.header}>
             <div className={styles.title}>
               <Tag color='gradient-aqua' text='Seguro Salud Flexible' />
-              <Text tag='p' size='extra-large' font='BRS-Bold' color='grey-50'>Creado para ti y tu familia</Text>
+              <Text tag='h1' size='extra-large' font='BRS-Bold' color='grey-50'>Creado para ti y tu familia</Text>
             </div>
             <img src={FamilyPresentationSmallImage} alt="family_presentation" />
           </div>
@@ -114,7 +105,7 @@ const LoginPage = () => {
       <div className={styles.footer}>
         <FooterPage />
       </div>
-    </div>
+    </MainLayout>
   )
 }
 

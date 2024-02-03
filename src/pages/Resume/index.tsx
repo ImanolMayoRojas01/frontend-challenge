@@ -1,10 +1,13 @@
-import ContactHeader from '@/components/03-organisms/ContactHeader'
 import styles from './style.module.scss'
-import StepLine from '@/components/03-organisms/StepLine'
-import BackButton from '@/components/02-molecules/BackButton'
-import Text from '@/components/01-atoms/Text'
-import { useResumePage } from '@/hooks/use-resume-page'
+
 import Icon from '@/components/01-atoms/Icon'
+import Text from '@/components/01-atoms/Text'
+import BackButton from '@/components/02-molecules/BackButton'
+import StepLine from '@/components/03-organisms/StepLine'
+
+import { useResumePage } from '@/hooks/use-resume-page'
+import { getClassnames } from '@/utils/styles.utils'
+import MainLayout from '@/components/06-layouts/MainLayout/MainLayout'
 
 const ResumePage = () => {
   const { properties, methods } = useResumePage()
@@ -19,10 +22,7 @@ const ResumePage = () => {
   } = methods
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header_contact}>
-        <ContactHeader />
-      </div>
+    <MainLayout classnames={styles.container}>
       <div className={styles.step_line}>
         <StepLine
           currentStep={2}
@@ -30,7 +30,12 @@ const ResumePage = () => {
         />
       </div>
       
-      <div className={styles.body}>
+      <div
+        className={getClassnames([
+          styles.body,
+          'grid'
+        ])}
+      >
         <div className={styles.back_button}>
           <BackButton text='Volver' onClick={goToBackPage} />
         </div>
@@ -65,7 +70,7 @@ const ResumePage = () => {
         }
         
       </div>
-    </div>
+    </MainLayout>
   )
 }
 

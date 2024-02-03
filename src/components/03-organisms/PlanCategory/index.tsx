@@ -1,8 +1,11 @@
-import { FC } from 'react'
 import styles from './styles.module.scss'
-import { getClassnames } from '@/utils/styles.utils'
+
+import { FC } from 'react'
+
 import Text from '@/components/01-atoms/Text'
 import Icon from '@/components/01-atoms/Icon'
+
+import { getClassnames } from '@/utils/styles.utils'
 
 type PlanCategoryProps = {
   checked: boolean
@@ -31,7 +34,7 @@ const PlanCategory: FC<PlanCategoryProps> = ({ checked, title, description, imag
       <div className={styles.plan}>
         <div className={styles.title}>
           <img src={image} alt="plan_image" />
-          <Text tag='p' size='large' font='Lato-Black' color='neutral-50'>{title}</Text>
+          <Text tag='h1' size='large' font='Lato-Black' color='neutral-50'>{title}</Text>
         </div>
         <Text tag='p' size='smallest' font='Lato-Regular' color='neutral-50'>{description}</Text>
       </div>

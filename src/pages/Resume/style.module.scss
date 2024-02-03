@@ -1,24 +1,39 @@
 @use "@/assets/styles/variables/colors" as Colors;
-@import "@/assets/styles/variables/mixins";
 @import "@/assets/styles/variables/responsive";
 
 .container {
-  max-width: 1920px;
-  margin: 0 auto;
-  .header_contact {
-    padding: 0 120px;
+  grid-template-rows: max-content max-content auto;
+  .step_line {
+    grid-column: 1/13;
+    @include screen-mobile {
+      display: none;
+    }
   }
   .body {
-    @include grid-container(12, 32px);
+    grid-column: 1/13;
     padding: 0 120px 40px 120px;
     overflow: auto;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    margin-top: 64px;
     .back_button {
-      padding: 64px 0 32px 0;
+      padding: 0 0 32px 0;
       grid-column: 2/5;
+      @include screen-mobile {
+        display: none;
+      }
+
     }
     .title_resume {
       grid-column: 2/10;
       grid-row: 2/3;
+      @include screen-mobile {
+        grid-column: 1/13;
+        grid-row: 1/2;
+        text-align: center;
+        margin-top: 32px;
+      }
     }
     .resume {
       grid-column: 2/12;
@@ -54,34 +69,16 @@
         flex-direction: column;
         gap: 4px;
       }
-    }
-  }
-}
-
-@include screen-mobile {
-  .container {
-    .header_contact {
-      padding: 0 24px;
-    }
-    .step_line {
-      display: none;
-    }
-    .body {
-      padding: 0 24px;
-      .back_button {
-        display: none;
-      }
-      .title_resume {
-        grid-column: 1/13;
-        grid-row: 1/2;
-        text-align: center;
-        margin-top: 32px;
-      }
-      .resume {
+      @include screen-mobile {
         grid-column: 1/13;
         grid-row: 2/3;
         margin-top: 40px;
       }
     }
+    @include screen-mobile {
+      grid-column: 1/5;
+      padding: 0 24px;
+    }
   }
 }
+

@@ -1,9 +1,12 @@
-import Text from '@/components/01-atoms/Text'
-import { getClassnames } from '@/utils/styles.utils'
-import { FC, useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
-import Icon from '@/components/01-atoms/Icon'
+
 import useOnClickOutside from 'use-onclickoutside'
+import { FC, useEffect, useRef, useState } from 'react'
+
+import Text from '@/components/01-atoms/Text'
+import Icon from '@/components/01-atoms/Icon'
+
+import { getClassnames } from '@/utils/styles.utils'
 
 export type SelectItemType<Value> = {
   value: Value
@@ -84,7 +87,7 @@ const Select: FC<SelectFormParams> = ({ items, classnames, onChange, placeholder
         onClick={() => setOpen(!isOpen)}
       
       >
-        <Text tag='p' color='grey-50' size='regular' font='BRS-Regular' classnames="mb-3">{currentElement.name}</Text>
+        <Text tag='span' color='grey-50' size='regular' font='BRS-Regular' classnames="mb-3">{currentElement.name}</Text>
         <Icon
           icon='angle-down'
           size={13}
@@ -107,7 +110,7 @@ const Select: FC<SelectFormParams> = ({ items, classnames, onChange, placeholder
                     hide()
                   }}
                 >
-                  <Text tag='p' color='grey-50' size='small' font='BRS-Regular' classnames="mb-3" center>{item.name}</Text>
+                  <Text tag='span' color='grey-50' size='small' font='BRS-Regular' classnames="mb-3" center>{item.name}</Text>
                 </div>
               ))
             }

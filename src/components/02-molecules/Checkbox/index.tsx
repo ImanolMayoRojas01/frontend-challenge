@@ -1,8 +1,12 @@
-import Text from '@/components/01-atoms/Text'
 import styles from './styles.module.scss'
+
 import { FC } from 'react'
-import { getClassnames } from '@/utils/styles.utils';
+
+import Text from '@/components/01-atoms/Text'
 import Icon from '@/components/01-atoms/Icon';
+
+import { getClassnames } from '@/utils/styles.utils';
+
 
 type CheckboxProps = {
   label: string;
@@ -13,10 +17,15 @@ type CheckboxProps = {
 }
 
 const Checkbox: FC<CheckboxProps> = ({ label, checked, isDisabled, onClick }) => {
+
+  const updateCheck = () => {
+    if ((isDisabled !== true) && onClick) onClick()
+  }
+
   return (
     <div className={styles.container}>
       <div
-        onClick={() => { ((isDisabled === false || isDisabled === undefined) && onClick) && onClick() }}
+        onClick={updateCheck}
         className={getClassnames([styles.checkbox, checked && styles.checkbox__checked])}
       >
         <Icon
@@ -25,7 +34,7 @@ const Checkbox: FC<CheckboxProps> = ({ label, checked, isDisabled, onClick }) =>
           size={11}
         />
       </div>
-      <Text tag='label' size='smallest' font="BRS-Regular" color='grey-200'>{label}</Text>
+      <Text tag='label' size='smallest' font="BRS-Regular" color='grey-200' onClick={updateCheck} classnames='pointer'>{label}</Text>
     </div>
   )
 }

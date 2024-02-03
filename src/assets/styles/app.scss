@@ -1,6 +1,6 @@
 // GLOBALS
 @import "./global/generics.scss";
-@import "./global/metrics.scss";
+@import "./global/dimensions.scss";
 @import "./global/reset-styles";
 
 // VARIABLES
@@ -8,4 +8,4 @@
 @import "./variables/colors.scss";
 
 
-@import "./grid";
+@import "./global/grid";

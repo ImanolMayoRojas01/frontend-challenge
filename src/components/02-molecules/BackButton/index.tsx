@@ -1,7 +1,9 @@
-import Icon from '@/components/01-atoms/Icon'
 import styles from './styles.module.scss'
-import Text from '@/components/01-atoms/Text'
+
 import { FC } from 'react'
+
+import Icon from '@/components/01-atoms/Icon'
+import Text from '@/components/01-atoms/Text'
 
 type BackButtonProps = {
   text: string
@@ -18,7 +20,7 @@ const BackButton: FC<BackButtonProps> = ({ text, onClick }) => {
           size={10}
         />
       </div>
-      <Text tag='p' color='blue-berry' size='medium' font='Lato-Bold'>{text}</Text>
+      <Text tag='span' color='blue-berry' size='medium' font='Lato-Bold'>{text}</Text>
     </div>
   )
 }

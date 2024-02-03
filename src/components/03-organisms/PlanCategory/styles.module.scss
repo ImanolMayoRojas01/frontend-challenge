@@ -36,15 +36,7 @@
         width: max-content;
         object-fit: contain;
       }
-    }
-  }
-  
-}
-
-@include screen-mobile {
-  .container {
-    .plan {
-      .title {
+      @include screen-mobile {
         flex-direction: row;
         align-items: center;
         gap: 10px;

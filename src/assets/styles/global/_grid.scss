@@ -1,13 +1,10 @@
-@import "./variables/responsive";
+@import "../variables/responsive";
 
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 32px;
-}
-
-@include screen-mobile {
-  .grid {
+  @include screen-mobile {
     grid-template-columns: repeat(4, 1fr);
     column-gap: 6px;
   }

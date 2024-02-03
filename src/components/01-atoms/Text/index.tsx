@@ -1,5 +1,6 @@
-import { FC, PropsWithChildren } from 'react'
 import styles from './styles.module.scss'
+
+import { FC, PropsWithChildren } from 'react'
 import { getClassnames } from '@/utils/styles.utils'
 
 type TextFont =

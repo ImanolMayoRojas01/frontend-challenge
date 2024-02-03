@@ -1,6 +1,5 @@
-@use "@/assets/styles/variables/paddings" as Paddings;
+@use "@/assets/styles/variables/dimensions" as Dimensions;
 @import "@/assets/styles/variables/responsive";
-
 
 .container {
   display: flex;
@@ -8,13 +7,14 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 0 auto;
   padding: 14px 0;
-  padding-left: Paddings.$desktop-padding-left;
-  padding-right: Paddings.$desktop-padding-right;
+  max-width: Dimensions.$max-width-content;
+  padding-left: Dimensions.$desktop-padding-left;
+  padding-right: Dimensions.$desktop-padding-right;
   .logo {
     object-fit: contain;
   }
-
   .contact {
     display: flex;
     gap: 16px;
@@ -24,15 +24,14 @@
       align-items: center;
       gap: 10px;
     }
-  }
-}
-
-@include screen-mobile {
-  .container {
-    padding-left: Paddings.$mobile-padding-left;
-    padding-right: Paddings.$mobile-padding-right;
-    .contact > :first-child {
-      display: none;
+    > :first-child {
+      @include screen-mobile {
+        display: none;
+      }
     }
+  }
+  @include screen-mobile {
+    padding-left: Dimensions.$mobile-padding-left;
+    padding-right: Dimensions.$mobile-padding-right;
   }
 }

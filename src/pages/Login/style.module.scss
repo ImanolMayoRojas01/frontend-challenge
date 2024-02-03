@@ -1,34 +1,30 @@
 @use "@/assets/styles/variables/colors" as Colors;
-@use "@/assets/styles/variables/paddings" as Paddings;
-@import "@/assets/styles/variables/mixins";
+@use "@/assets/styles/variables/dimensions" as Dimensions;
 @import "@/assets/styles/variables/responsive";
 
 .container {
-  width: 100%;
-  margin: 0;
   grid-template-rows: max-content auto max-content;
-  height: 100vh;
-  .header_contact {
-    grid-column: 1/13;
-    margin-bottom: 32px;
-  }
   .body {
     grid-column: 1/13;
     max-width: 1920px;
     align-self: flex-start;
-    padding: 0 Paddings.$desktop-padding-left;
+    padding-left: Dimensions.$desktop-padding-left;
+    padding-right: Dimensions.$desktop-padding-right;
     width: 100%;
     margin: 0 auto;
+    margin-top: 32px;
     margin-bottom: 32px;
     grid-column: 1/13;
     overflow: auto;
-    margin-bottom: 32px;
     .image {
       grid-column: 1/6;
       grid-row: 2/3;
       object-fit: cover;
       max-width: 100%;
       border-radius: 24px;
+      @include screen-mobile {
+        display: none;
+      }
     }
     .form {
       grid-column: 7/11;
@@ -49,6 +45,16 @@
           display: none;
           border-radius: 16px;
           object-fit: contain;
+          @include screen-mobile {
+            display: flex;
+          }
+        }
+        @include screen-mobile {
+          padding-bottom: 24px;
+          margin-bottom: 24px;
+          align-items: center;
+          border-bottom: 1px solid Colors.$grey-250;
+          justify-content: space-between;
         }
       }
       .dni_select {
@@ -59,51 +65,29 @@
           width: 100%;
         }
       }
-
       .policies {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
+        @include screen-mobile {
+          gap: 16px;
+        }
       }
+      @include screen-mobile {
+        grid-column: 1/5;
+      }
+    }
+    @include screen-mobile {
+      grid-column: 1/5;
+      padding: 0 Dimensions.$mobile-padding-left;
+      margin-top: 0;
     }
   }
   .footer {
     grid-column: 1/13;
     grid-row: 3/3;
-  }
-}
-
-@include screen-mobile {
-  .container {
-    .header_contact {
-      grid-column: 1/5;
-      margin-bottom: 0;
-    }
-    .body {
-      grid-column: 1/5;
-      padding: 0 Paddings.$mobile-padding-left;
-      .image {
-        display: none;
-      }
-      .form {
-        grid-column: 1/5;
-        .header {
-          padding-bottom: 24px;
-          margin-bottom: 24px;
-          align-items: center;
-          border-bottom: 1px solid Colors.$grey-250;
-          justify-content: space-between;
-          img {
-            display: flex;
-          }
-        }
-        .policies {
-          gap: 16px;
-        }
-      }
-    }
-    .footer {
+    @include screen-mobile {
       grid-column: 1/5;
     }
   }

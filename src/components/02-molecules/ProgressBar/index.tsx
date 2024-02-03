@@ -1,5 +1,7 @@
-import { FC } from 'react'
 import styles from './styles.module.scss'
+
+import { FC } from 'react'
+
 import { getClassnames } from '@/utils/styles.utils'
 
 type ProgressBarProps = {
