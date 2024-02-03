@@ -43,6 +43,8 @@
         }
         img {
           display: none;
+          width: 136px;
+          height: 160px;
           border-radius: 16px;
           object-fit: contain;
           @include screen-mobile {
@@ -58,11 +60,14 @@
         }
       }
       .dni_select {
-        display: grid;
-        grid-template-columns: 40% 60%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
         margin-bottom: 16px;
-        > * {
-          width: 100%;
+        > :first-child {
+          display: grid;
+          grid-template-columns: 40% 60%;
+ 
         }
       }
       .policies {
@@ -70,6 +75,11 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
+        > div {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
         @include screen-mobile {
           gap: 16px;
         }

@@ -23,7 +23,12 @@ const LoginPage = () => {
     numberDocument,
     phoneNumber,
     isAcceptPrivacyPolicy,
-    isAcceptComercialPolicy
+    isAcceptComercialPolicy,
+
+    errMessageNumberDoc,
+    errMessagePhoneNumber,
+    errMessageAcceptComercial,
+    errMessageAcceptPrivacity
   } = properties
 
   const {
@@ -57,39 +62,57 @@ const LoginPage = () => {
             Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra asesoría. 100% online.
           </Text>
           <div className={styles.dni_select}>
-            <Select
-              items={DOCUMENTS_SELECT}
-              placeholder={DOCUMENTS_SELECT[0]}
-              onChange={(event) => updateTypeDocument(event.value)}
-              isNotRightBorderRadius
-            />
+            <div>
+              <Select
+                items={DOCUMENTS_SELECT}
+                placeholder={DOCUMENTS_SELECT[0]}
+                onChange={(event) => updateTypeDocument(event.value)}
+                isNotRightBorderRadius
+              />
+              <InputText
+                type='number'
+                label='Nro. de documento'
+                value={numberDocument || ""}
+                onChange={(event) => updateNumberDocument(event.target.value)}
+                isNotLeftBorder
+              />
+            </div>
+            { errMessageNumberDoc && <Text tag='span' size='smallest' font='BRS-Regular' color='primary-red'>{errMessageNumberDoc}</Text> }
+          </div>
+          <div className='mb-24'>
             <InputText
               type='number'
-              label='Nro. de documento'
-              value={numberDocument || ""}
-              onChange={(event) => updateNumberDocument(event.target.value)}
-              isNotLeftBorder
+              label='Celular'
+              classnames='mb-8'
+              value={phoneNumber || ""}
+              onChange={(event) => updatePhoneNumber(event.target.value)}
             />
+            { errMessagePhoneNumber && <Text tag='span' size='smallest' font='BRS-Regular' color='primary-red'>{errMessagePhoneNumber}</Text> }
           </div>
-          
-          <InputText
-            type='number'
-            label='Celular'
-            classnames='mb-24'
-            value={phoneNumber || ""}
-            onChange={(event) => updatePhoneNumber(event.target.value)}
-          />
+
           <div className={styles.policies}>
-            <Checkbox
-              label='Acepto lo Política de Privacidad'
-              checked={isAcceptPrivacyPolicy}
-              onClick={() => updateAcceptPrivacyPolicy(!isAcceptPrivacyPolicy)}
-            />
-            <Checkbox
-              label='Acepto la Política Comunicaciones Comerciales'
-              checked={isAcceptComercialPolicy}
-              onClick={() => updateAcceptComercialPolicy(!isAcceptComercialPolicy)}
-            />
+            <div>
+              <Checkbox
+                label='Acepto lo Política de Privacidad'
+                checked={!!isAcceptPrivacyPolicy}
+                onClick={() => updateAcceptPrivacyPolicy(!isAcceptPrivacyPolicy)}
+              />
+              {
+                errMessageAcceptPrivacity && <Text tag='span' size='smallest' font='BRS-Regular' color='primary-red'>{errMessageAcceptPrivacity}</Text>
+              }
+            </div>
+            <div>
+              <Checkbox
+                label='Acepto la Política Comunicaciones Comerciales'
+                checked={!!isAcceptComercialPolicy}
+                onClick={() => updateAcceptComercialPolicy(!isAcceptComercialPolicy)}
+              />
+              {
+                errMessageAcceptComercial && <Text tag='span' size='smallest' font='BRS-Regular' color='primary-red'>{errMessageAcceptComercial}</Text>
+              }
+              
+            </div>
+            
             <Text tag='p' size='smallest' font='BRS-SemiBold' color='grey-50' underline pointer>Aplican Términos y Condiciones.</Text>
           </div>
           <Button

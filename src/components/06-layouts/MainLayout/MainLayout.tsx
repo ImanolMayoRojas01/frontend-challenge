@@ -1,6 +1,7 @@
-import ContactHeader from '@/components/03-organisms/ContactHeader'
 import styles from './styles.module.scss'
+
 import { FC, PropsWithChildren } from 'react'
+import ContactHeader from '@/components/03-organisms/ContactHeader'
 import { getClassnames } from '@/utils/styles.utils'
 
 type MainLayoutProps = {
@@ -9,7 +10,7 @@ type MainLayoutProps = {
 
 const MainLayout: FC<PropsWithChildren<MainLayoutProps>> = ({ children, classnames }) => {
   return (
-    <div
+    <main
       className={getClassnames([
         styles.container,
         classnames,
@@ -20,7 +21,7 @@ const MainLayout: FC<PropsWithChildren<MainLayoutProps>> = ({ children, classnam
         <ContactHeader />
       </div>
       {children}
-    </div>
+    </main>
   )
 }
 

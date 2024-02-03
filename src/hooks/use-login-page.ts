@@ -20,16 +20,62 @@ export const useLoginPage = () => {
   const navigate = useNavigate()
 
   const [typeDocument, setTypeDocument] = useState<UserDocumentType>('dni')
-  const [numberDocument, setNumberDocument] = useState<string | null>('75450278')
-  const [phoneNumber, setPhoneNumber] = useState<string | null>('946422312')
-  const [isAcceptComercialPolicy, setIsAcceptComercialPolicy] = useState(false)
-  const [isAcceptPrivacyPolicy, setIsAcceptPrivacyPolicy] = useState(false)
+  const [numberDocument, setNumberDocument] = useState<string | undefined>('75450278')
+  const [phoneNumber, setPhoneNumber] = useState<string | undefined>('946422312')
+  const [isAcceptComercialPolicy, setIsAcceptComercialPolicy] = useState<boolean | undefined>(undefined)
+  const [isAcceptPrivacyPolicy, setIsAcceptPrivacyPolicy] = useState<boolean | undefined>(undefined)
+
+  const [errMessageNumberDoc, setErrMessageNumberDoc] = useState("")
+  const [errMessagePhoneNumber, setErrMessagePhoneNumber] = useState("")
+  const [errMessageAcceptPrivacity, setErrMessageAcceptPrivacity] = useState("")
+  const [errMessageAcceptComercial, setErrMessageAcceptComercial] = useState("")
 
   const updateTypeDocument = (value: UserDocumentType) => setTypeDocument(value)
   const updateNumberDocument = (value: string) => setNumberDocument(value)
   const updatePhoneNumber = (value: string) => setPhoneNumber(value)
   const updateAcceptComercialPolicy = (value: boolean) => setIsAcceptComercialPolicy(value)
   const updateAcceptPrivacyPolicy = (value: boolean) => setIsAcceptPrivacyPolicy(value)
+
+  const validFormErrorMessages = () => {
+    if (numberDocument !== undefined) {
+      let maxDigits = false
+      let isNumber = !isNaN(Number(numberDocument))
+
+      switch (typeDocument) {
+        case 'dni':
+          maxDigits = numberDocument.length === USER_DNI_DIGITS
+          break;
+      }
+      if (!numberDocument) setErrMessageNumberDoc("Este campo es requerido")
+      else if (!isNumber) setErrMessageNumberDoc("No puede contener letras")
+      else if (!maxDigits) setErrMessageNumberDoc(`Debe contener ${USER_DNI_DIGITS} digitos`)
+      else setErrMessageNumberDoc("")
+    }
+    if (phoneNumber !== undefined) {
+      let maxDigits = phoneNumber.length === USER_PHONE_DIGITS
+      let isNumber = !isNaN(Number(phoneNumber))
+
+      if (!phoneNumber) setErrMessagePhoneNumber("Este campo es requerido")
+      else if (!isNumber) setErrMessagePhoneNumber("No puede contener letras")
+      else if (!maxDigits) setErrMessagePhoneNumber(`Debe contener ${USER_PHONE_DIGITS} digitos`)
+      else setErrMessagePhoneNumber("")
+    }
+    if (isAcceptComercialPolicy !== undefined) {
+      if (isAcceptComercialPolicy === false) setErrMessageAcceptComercial("Aceptar este campo es obligatorio")
+      else setErrMessageAcceptComercial("")
+    }
+    if (isAcceptPrivacyPolicy !== undefined) {
+      if (isAcceptPrivacyPolicy === false) setErrMessageAcceptPrivacity("Aceptar este campo es obligatorio")
+      else setErrMessageAcceptPrivacity("")
+    }
+  }
+
+  const initFields = () => {
+    setNumberDocument(numberDocument || "")
+    setPhoneNumber(phoneNumber || "")
+    setIsAcceptComercialPolicy(isAcceptComercialPolicy || false)
+    setIsAcceptPrivacyPolicy(isAcceptPrivacyPolicy || false)
+  }
 
   const validateForm = (): boolean => {
     let isNumberDocumentValid = false
@@ -52,13 +98,17 @@ export const useLoginPage = () => {
 
     return ( isNumberDocumentValid &&
       isPhoneNumberValid &&
-      isAcceptPrivacyPolicy &&
-      isAcceptComercialPolicy
+      !!isAcceptPrivacyPolicy &&
+      !!isAcceptComercialPolicy
     )
   }
 
   const getUserData = () => {
-    if (!validateForm() || AuthStore.fetchStates.getUser === 'loading') return
+    if (!validateForm()) {
+      initFields()
+      return
+    }
+    if (AuthStore.fetchStates.getUser === 'loading') return
 
     dispatch(A_GET_USER({
       numberDocument: numberDocument || "",
@@ -66,6 +116,13 @@ export const useLoginPage = () => {
       phone: phoneNumber || ""
     }))
   }
+
+  useEffect(validFormErrorMessages,[
+    numberDocument,
+    phoneNumber,
+    isAcceptComercialPolicy,
+    isAcceptPrivacyPolicy
+  ])
 
   useEffect(() => {
     const state = AuthStore.fetchStates.getUser
@@ -84,7 +141,12 @@ export const useLoginPage = () => {
       numberDocument,
       phoneNumber,
       isAcceptComercialPolicy,
-      isAcceptPrivacyPolicy
+      isAcceptPrivacyPolicy,
+
+      errMessageNumberDoc,
+      errMessagePhoneNumber,
+      errMessageAcceptPrivacity,
+      errMessageAcceptComercial
     },
     methods: {
       updateTypeDocument,

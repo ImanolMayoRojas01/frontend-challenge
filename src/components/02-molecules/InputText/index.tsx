@@ -8,10 +8,11 @@ type InputTextProps = {
   label: string
   classnames?: string
   isNotLeftBorder?: boolean
+  errorMessage?: string
 } & InputHTMLAttributes<HTMLInputElement>
 
 const InputText = forwardRef<HTMLInputElement, InputTextProps>(
-  ({ label, classnames, isNotLeftBorder, ...rest }, ref) => {
+  ({ label, classnames, isNotLeftBorder, errorMessage, ...rest }, ref) => {
     return (
       <div
         className={getClassnames([
@@ -26,6 +27,9 @@ const InputText = forwardRef<HTMLInputElement, InputTextProps>(
           ref={ref}
           {...rest}
         />
+        {
+          errorMessage && <Text tag='span' size='smallest' font='BRS-Regular' color='primary-red'>{errorMessage}</Text>
+        }
       </div>
     )
 })
