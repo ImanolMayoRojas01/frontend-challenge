@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 
-import { FC } from 'react'
+import type { FC } from 'react'
 import { getClassnames } from '@/utils/styles.utils'
 
 import Text from '../Text'
@@ -10,12 +10,20 @@ type ButtonProps = {
   theme: 'dark' | 'primary'
   size: 'short' | 'large'
   sizeRounded: 'low' | 'high'
-  onClick?(): void
+  onClick?: () => void
   fullwidth?: boolean
   classnames?: string
 }
 
-const Button: FC<ButtonProps> = ({ text, theme, size, onClick, fullwidth, sizeRounded, classnames }) => {
+const Button: FC<ButtonProps> = ({
+  text,
+  theme,
+  size,
+  onClick,
+  fullwidth,
+  sizeRounded,
+  classnames
+}) => {
   return (
     <button
       className={getClassnames([
@@ -23,12 +31,14 @@ const Button: FC<ButtonProps> = ({ text, theme, size, onClick, fullwidth, sizeRo
         styles[`theme-${theme}`],
         styles[`size-${size}`],
         styles[`rounded-${sizeRounded}`],
-        fullwidth && styles.fullwidth,
+        fullwidth !== undefined && styles.fullwidth,
         classnames
       ])}
       onClick={onClick}
     >
-      <Text tag="span" size='large' font='BRS-Bold' color='white'>{text}</Text>
+      <Text tag="span" size="large" font="BRS-Bold" color="white">
+        {text}
+      </Text>
     </button>
   )
 }

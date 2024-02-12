@@ -1,11 +1,11 @@
-import { SelectItemType } from "@/components/02-molecules/Select"
-import { USER_DNI_DIGITS, USER_PHONE_DIGITS } from "@/constants/global"
-import { UserDocumentType } from "@/types/models/user-store.model"
-import { useAppDispatch, useAppSelector } from "@/store"
-import { A_AUTH_RESET_FETCH_STATES, A_GET_USER } from "@/store/auth/actions"
-import { evaluateFetchStateSimple } from "@/utils/store.utils"
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import type { SelectItemType } from '@/components/02-molecules/Select'
+import { USER_DNI_DIGITS, USER_PHONE_DIGITS } from '@/constants/global'
+import type { UserDocumentType } from '@/types/models/user-store.model'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { A_AUTH_RESET_FETCH_STATES, A_GET_USER } from '@/store/auth/actions'
+import { evaluateFetchStateSimple } from '@/utils/store.utils'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const DOCUMENTS_SELECT: SelectItemType<UserDocumentType>[] = [
   {
@@ -16,90 +16,123 @@ const DOCUMENTS_SELECT: SelectItemType<UserDocumentType>[] = [
 
 export const useLoginPage = () => {
   const dispatch = useAppDispatch()
-  const AuthStore = useAppSelector(store => store.auth)
+  const AuthStore = useAppSelector((store) => store.auth)
   const navigate = useNavigate()
 
   const [typeDocument, setTypeDocument] = useState<UserDocumentType>('dni')
-  const [numberDocument, setNumberDocument] = useState<string | undefined>(undefined)
+  const [numberDocument, setNumberDocument] = useState<string | undefined>(
+    undefined
+  )
   const [phoneNumber, setPhoneNumber] = useState<string | undefined>(undefined)
-  const [isAcceptComercialPolicy, setIsAcceptComercialPolicy] = useState<boolean | undefined>(undefined)
-  const [isAcceptPrivacyPolicy, setIsAcceptPrivacyPolicy] = useState<boolean | undefined>(undefined)
+  const [isAcceptComercialPolicy, setIsAcceptComercialPolicy] = useState<
+    boolean | undefined
+  >(undefined)
+  const [isAcceptPrivacyPolicy, setIsAcceptPrivacyPolicy] = useState<
+    boolean | undefined
+  >(undefined)
 
-  const [errMessageNumberDoc, setErrMessageNumberDoc] = useState("")
-  const [errMessagePhoneNumber, setErrMessagePhoneNumber] = useState("")
-  const [errMessageAcceptPrivacity, setErrMessageAcceptPrivacity] = useState("")
-  const [errMessageAcceptComercial, setErrMessageAcceptComercial] = useState("")
+  const [errMessageNumberDoc, setErrMessageNumberDoc] = useState('')
+  const [errMessagePhoneNumber, setErrMessagePhoneNumber] = useState('')
+  const [errMessageAcceptPrivacity, setErrMessageAcceptPrivacity] = useState('')
+  const [errMessageAcceptComercial, setErrMessageAcceptComercial] = useState('')
 
-  const updateTypeDocument = (value: UserDocumentType) => setTypeDocument(value)
-  const updateNumberDocument = (value: string) => setNumberDocument(value)
-  const updatePhoneNumber = (value: string) => setPhoneNumber(value)
-  const updateAcceptComercialPolicy = (value: boolean) => setIsAcceptComercialPolicy(value)
-  const updateAcceptPrivacyPolicy = (value: boolean) => setIsAcceptPrivacyPolicy(value)
+  const updateTypeDocument = (value: UserDocumentType) => {
+    setTypeDocument(value)
+  }
+  const updateNumberDocument = (value: string) => {
+    setNumberDocument(value)
+  }
+  const updatePhoneNumber = (value: string) => {
+    setPhoneNumber(value)
+  }
+  const updateAcceptComercialPolicy = (value: boolean) => {
+    setIsAcceptComercialPolicy(value)
+  }
+  const updateAcceptPrivacyPolicy = (value: boolean) => {
+    setIsAcceptPrivacyPolicy(value)
+  }
+
+  const switchAcceptComercialPolicy = () => {
+    if (isAcceptComercialPolicy === true) setIsAcceptComercialPolicy(false)
+    else setIsAcceptComercialPolicy(true)
+  }
+
+  const switchAcceptPrivacyPolicy = () => {
+    if (isAcceptPrivacyPolicy === true) setIsAcceptPrivacyPolicy(false)
+    else setIsAcceptPrivacyPolicy(true)
+  }
 
   const validFormErrorMessages = () => {
     if (numberDocument !== undefined) {
       let maxDigits = false
-      let isNumber = !isNaN(Number(numberDocument))
+      const isNumber = !isNaN(Number(numberDocument))
 
       switch (typeDocument) {
         case 'dni':
           maxDigits = numberDocument.length === USER_DNI_DIGITS
-          break;
+          break
       }
-      if (!numberDocument) setErrMessageNumberDoc("Este campo es requerido")
-      else if (!isNumber) setErrMessageNumberDoc("No puede contener letras")
-      else if (!maxDigits) setErrMessageNumberDoc(`Debe contener ${USER_DNI_DIGITS} digitos`)
-      else setErrMessageNumberDoc("")
+      if (numberDocument === '')
+        setErrMessageNumberDoc('Este campo es requerido')
+      else if (!isNumber) setErrMessageNumberDoc('No puede contener letras')
+      else if (!maxDigits)
+        setErrMessageNumberDoc(`Debe contener ${USER_DNI_DIGITS} digitos`)
+      else setErrMessageNumberDoc('')
     }
     if (phoneNumber !== undefined) {
-      let maxDigits = phoneNumber.length === USER_PHONE_DIGITS
-      let isNumber = !isNaN(Number(phoneNumber))
+      const maxDigits = phoneNumber.length === USER_PHONE_DIGITS
+      const isNumber = !isNaN(Number(phoneNumber))
 
-      if (!phoneNumber) setErrMessagePhoneNumber("Este campo es requerido")
-      else if (!isNumber) setErrMessagePhoneNumber("No puede contener letras")
-      else if (!maxDigits) setErrMessagePhoneNumber(`Debe contener ${USER_PHONE_DIGITS} digitos`)
-      else setErrMessagePhoneNumber("")
+      if (phoneNumber === '')
+        setErrMessagePhoneNumber('Este campo es requerido')
+      else if (!isNumber) setErrMessagePhoneNumber('No puede contener letras')
+      else if (!maxDigits)
+        setErrMessagePhoneNumber(`Debe contener ${USER_PHONE_DIGITS} digitos`)
+      else setErrMessagePhoneNumber('')
     }
     if (isAcceptComercialPolicy !== undefined) {
-      if (isAcceptComercialPolicy === false) setErrMessageAcceptComercial("Este campo es obligatorio")
-      else setErrMessageAcceptComercial("")
+      if (!isAcceptComercialPolicy)
+        setErrMessageAcceptComercial('Este campo es obligatorio')
+      else setErrMessageAcceptComercial('')
     }
     if (isAcceptPrivacyPolicy !== undefined) {
-      if (isAcceptPrivacyPolicy === false) setErrMessageAcceptPrivacity("Este campo es obligatorio")
-      else setErrMessageAcceptPrivacity("")
+      if (!isAcceptPrivacyPolicy)
+        setErrMessageAcceptPrivacity('Este campo es obligatorio')
+      else setErrMessageAcceptPrivacity('')
     }
   }
 
   const initFields = () => {
-    setNumberDocument(numberDocument || "")
-    setPhoneNumber(phoneNumber || "")
-    setIsAcceptComercialPolicy(isAcceptComercialPolicy || false)
-    setIsAcceptPrivacyPolicy(isAcceptPrivacyPolicy || false)
+    setNumberDocument(numberDocument ?? '')
+    setPhoneNumber(phoneNumber ?? '')
+    setIsAcceptComercialPolicy(isAcceptComercialPolicy ?? false)
+    setIsAcceptPrivacyPolicy(isAcceptPrivacyPolicy ?? false)
   }
 
   const validateForm = (): boolean => {
     let isNumberDocumentValid = false
     let isPhoneNumberValid = false
 
-    if (numberDocument) {
+    if (numberDocument !== undefined && numberDocument !== '') {
       let maxDigits = false
       switch (typeDocument) {
         case 'dni':
           maxDigits = numberDocument.length === USER_DNI_DIGITS
-          break;
+          break
       }
-      isNumberDocumentValid = (maxDigits)
+      isNumberDocumentValid = maxDigits
     }
 
-    if (phoneNumber) {
+    if (phoneNumber !== undefined && phoneNumber !== '') {
       const maxDigits = phoneNumber.length === USER_PHONE_DIGITS
       isPhoneNumberValid = maxDigits
     }
 
-    return ( isNumberDocumentValid &&
+    return (
+      isNumberDocumentValid &&
       isPhoneNumberValid &&
-      !!isAcceptPrivacyPolicy &&
-      !!isAcceptComercialPolicy
+      isAcceptPrivacyPolicy === true &&
+      isAcceptComercialPolicy === true
     )
   }
 
@@ -110,14 +143,16 @@ export const useLoginPage = () => {
     }
     if (AuthStore.fetchStates.getUser === 'loading') return
 
-    dispatch(A_GET_USER({
-      numberDocument: numberDocument || "",
-      typeDocument: typeDocument,
-      phone: phoneNumber || ""
-    }))
+    void dispatch(
+      A_GET_USER({
+        numberDocument: numberDocument ?? '',
+        typeDocument,
+        phone: phoneNumber ?? ''
+      })
+    )
   }
 
-  useEffect(validFormErrorMessages,[
+  useEffect(validFormErrorMessages, [
     numberDocument,
     phoneNumber,
     isAcceptComercialPolicy,
@@ -129,7 +164,9 @@ export const useLoginPage = () => {
 
     evaluateFetchStateSimple({
       state,
-      onSuccess: () => navigate('/plans'),
+      onSuccess: () => {
+        navigate('/plans')
+      },
       onComplete: () => dispatch(A_AUTH_RESET_FETCH_STATES())
     })
   }, [AuthStore.fetchStates.getUser])
@@ -154,7 +191,9 @@ export const useLoginPage = () => {
       updatePhoneNumber,
       updateAcceptComercialPolicy,
       updateAcceptPrivacyPolicy,
-      getUserData
+      getUserData,
+      switchAcceptComercialPolicy,
+      switchAcceptPrivacyPolicy
     }
   }
 }

@@ -1,16 +1,41 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+/* eslint-disable @typescript-eslint/promise-function-async */
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import LoginPage from "@/pages/Login"
-import PlansPage from "@/pages/Plans"
-import ResumePage from "@/pages/Resume"
+import { Suspense, lazy } from 'react'
+import ScreenLoading from '@/components/04-templates/ScreenLoading'
+
+const LoginPage = lazy(() => import('@/pages/Login'))
+const PlansPage = lazy(() => import('@/pages/Plans'))
+const ResumePage = lazy(() => import('@/pages/Resume'))
 
 const RouterApp = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/plans" element={<PlansPage />} />
-        <Route path="/resume" element={<ResumePage />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<ScreenLoading />}>
+              <LoginPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/plans"
+          element={
+            <Suspense fallback={<ScreenLoading />}>
+              <PlansPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/resume"
+          element={
+            <Suspense fallback={<ScreenLoading />}>
+              <ResumePage />
+            </Suspense>
+          }
+        />
       </Routes>
     </Router>
   )

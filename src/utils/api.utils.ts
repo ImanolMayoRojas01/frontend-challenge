@@ -1,5 +1,5 @@
-import axios from "axios"
-import { API_HOST } from "@/constants/enviroments"
+import axios from 'axios'
+import { API_HOST } from '@/constants/enviroments'
 
 export const getApiConnection = () => {
   const API = axios.create({
