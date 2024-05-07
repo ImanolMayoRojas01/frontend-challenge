@@ -10,7 +10,9 @@ const FooterPage = () => {
       <div className={styles.content}>
         <img src={RimacWhiteLogo} alt="rimac_white_logo" />
         <hr className={styles.separator}></hr>
-        <Text tag='span' size='small' color='grey-150' font='BRS-Regular'>© 2023 RIMAC Seguros y Reaseguros.</Text>
+        <Text tag="span" size="small" color="grey-150" font="BRS-Regular">
+          © 2023 RIMAC Seguros y Reaseguros.
+        </Text>
       </div>
     </footer>
   )

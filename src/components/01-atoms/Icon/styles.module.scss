@@ -6,17 +6,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  path {
+    fill: currentColor;
+  }
 }
 
-.color-transparent { fill: transparent; }
-.color-grey-50 { fill: Colors.$grey-50; }
-.color-grey-100 { fill: Colors.$grey-100; }
-.color-blue-berry { fill: Colors.$blue-berry; }
-.color-neutral-50 { fill: Colors.$neutral-50; }
-.color-neutral-100 { fill: Colors.$neutral-100; }
-.color-neutral-200 { fill: Colors.$neutral-200; }
-.color-green { fill: Colors.$green; }
-.color-green-aqua { fill: Colors.$green-aqua; }
-.color-primary-red { fill: Colors.$primary-red; }
+.color-transparent { color: transparent; }
+.color-grey-50 { color: Colors.$grey-50; }
+.color-grey-100 { color: Colors.$grey-100; }
+.color-blue-berry { color: Colors.$blue-berry; }
+.color-neutral-50 { color: Colors.$neutral-50; }
+.color-neutral-100 { color: Colors.$neutral-100; }
+.color-neutral-200 { color: Colors.$neutral-200; }
+.color-green { color: Colors.$green; }
+.color-green-aqua { color: Colors.$green-aqua; }
+.color-primary-red { color: Colors.$primary-red; }
 
-.color-white { fill: white; }
+.color-white { color: white; }

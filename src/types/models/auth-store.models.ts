@@ -1,5 +1,5 @@
-import { FetchStateType } from "../app/store"
-import { UserEntity } from "./user-store.model"
+import type { FetchStateType } from '../app/store'
+import type { UserEntity } from './user-store.model'
 
 export type AuthFetchStates = {
   getUser: FetchStateType

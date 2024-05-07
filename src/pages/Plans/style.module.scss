@@ -27,12 +27,13 @@ body {
     height: 100%;
     max-width: Dimensions.$max-width-content;
     margin: 0 auto;
+    padding: 40px 0;
     padding-left: Dimensions.$desktop-padding-left;
     padding-right: Dimensions.$desktop-padding-right;
     grid-auto-rows: max-content;
     .back_button {
       grid-column: 2/5;
-      padding: 40px 0 56px 0; 
+      padding: 0 0 56px 0; 
       @include screen-mobile {
         grid-column: 2/5;
         display: none;

@@ -1,0 +1,13 @@
+@use "@/assets/styles/variables/colors" as Colors;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: Colors.$neutral-300;
+  img {
+    object-fit: contain;
+  }
+}
